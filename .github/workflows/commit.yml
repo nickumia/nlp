@@ -1,0 +1,34 @@
+---
+name: commit
+
+on:
+  push:
+
+jobs:
+  pylint:
+    name: Python lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: build
+        run: make build
+      - name: lint
+        run: make lint
+
+  test:
+    name: Pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: build
+        run: make build
+      - name: test
+        run: make test-cov
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: /home/runner/work/nlp/nlp
+          files: ./coverage.xml
