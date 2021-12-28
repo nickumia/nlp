@@ -9,4 +9,4 @@ test:
 	docker run --rm -v "$(shell pwd)":/app dac:latest bash -c "coverage run -m pytest --disable-pytest-warnings && coverage report --omit=\"tests/*\""
 
 test-cov:
-	docker run --rm -v "$(shell pwd)":/app dac:latest bash -c "coverage run -m pytest --disable-pytest-warnings && coverage xml --omit=\"tests/*\""
+	docker run --rm -v "$(shell pwd)":/app dac:latest bash -c "coverage run -m pytest --disable-pytest-warnings && coverage report --omit=\"tests/*\""
