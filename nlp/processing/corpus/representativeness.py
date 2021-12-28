@@ -1,7 +1,5 @@
 # Track corpus-related metrics and statistics
 
-from nlp.processing.filters import sanitize
-
 
 def ttr(body):
     '''
