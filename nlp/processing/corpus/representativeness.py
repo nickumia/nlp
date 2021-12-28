@@ -2,6 +2,7 @@
 
 from nlp.processing.filters import sanitize
 
+
 def ttr(body):
     '''
     IN: body: list(str), a list of individual words
