@@ -11,4 +11,3 @@ def test_ttr_all_unique():
     assert types == len(test_body)
     assert tokens == len(test_body)
     assert types/tokens == 1
-
