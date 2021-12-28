@@ -1,12 +1,12 @@
 
 build:
-	docker build -t dac .
+	docker build -t nlp:dev .
 
 lint:
-	docker run --rm -v "$(shell pwd)":/app dac:latest bash -c "cd /app && flake8 . --count --show-source --statistics"
+	docker run --rm -v "$(shell pwd)":/pac nlp:dev bash -c "cd /pac && flake8 . --count --show-source --statistics"
 
 test:
-	docker run --rm -v "$(shell pwd)":/app dac:latest bash -c "coverage run -m pytest --disable-pytest-warnings && coverage report --omit=\"tests/*\""
+	docker run --rm -v "$(shell pwd)":/pac nlp:dev bash -c "coverage run --source=nlp -m pytest --disable-pytest-warnings && coverage report --omit=\"tests/*\""
 
 test-cov:
-	docker run --rm -v "$(shell pwd)":/app dac:latest bash -c "coverage run -m pytest --disable-pytest-warnings && coverage report --omit=\"tests/*\""
+	docker run --rm -v "$(shell pwd)":/pac nlp:dev bash -c "coverage run --source=nlp -m pytest --disable-pytest-warnings && coverage xml"
