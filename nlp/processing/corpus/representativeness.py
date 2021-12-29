@@ -20,7 +20,7 @@ def unique(body):
 def occurences(body):
     '''
     IN: body: list(str), a list of individual words
-    OUT: : int, the number of total words
+    OUT: frequency: int, the number of total words
     '''
     frequency = dict.fromkeys(unique(body), 0)
     for word in body:
