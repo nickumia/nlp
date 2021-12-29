@@ -45,9 +45,10 @@ def group(body):
 
     for i, party in enumerate(GROUP_SEQUENCES):
         matches = re.findall(party, body, flags=re.I | re.M | re.U)
-        if type(matches[0]) == tuple:
-            group_map[GROUP_NAMES[i]] = [i[0] for i in matches]
-        else:
-            group_map[GROUP_NAMES[i]] = matches
+        if matches != []:
+            if type(matches[0]) == tuple:
+                group_map[GROUP_NAMES[i]] = [i[0] for i in matches]
+            else:
+                group_map[GROUP_NAMES[i]] = matches
 
     return group_map
