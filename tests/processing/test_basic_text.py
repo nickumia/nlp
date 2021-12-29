@@ -1,7 +1,9 @@
 
 from nlp.processing.inputs import BasicText
+from nlp.processing.filters import sanitize
 from nlp.processing.corpus.representativeness import occurences
 import nlp.processing.corpus.identity as npci
+import nlp.processing.appraisal.contexts as npac
 
 
 npci.ABBREVIATION_LENGTH = 2
@@ -52,3 +54,19 @@ def test_group_all():
     assert computed[npci.NUMBERS_WITH_EXPRESSION] == ['9 ft tall',
                                                       '90 million miles',
                                                       '10, 2014']
+
+
+def test_context_generation():
+    text = sanitize('Grass is green.  Green is a nice color.  Green makes '
+                    'me happy!  But colorless green ideas sleep furiously.')
+
+    partial = npci.group(text)
+    computed = npac.generate(partial, text)
+
+    print(computed['green'])
+    assert computed['grass'] == [('grass is green.', npci.SENTENCES, 0)]
+    assert computed['green'] == [
+        ('grass is green.', npci.SENTENCES, 0),
+        ('green is a nice color.', npci.SENTENCES, 17),
+        ('but colorless green ideas sleep furiously.', npci.SENTENCES, 64),
+        ('green makes me happy!', npci.EXCLAMATIONS, 41)]
