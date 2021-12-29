@@ -2,11 +2,12 @@
 import nlp.processing.corpus.representativeness as npcr
 import nlp.processing.corpus.identity as npci
 
+
 def generate(groups, full_text):
     '''
     IN: groups, dict(list), a dictionary of identity groups
     IN: full_text, str, full input text
-    OUT: contexts, dict(list), a dictionary of 
+    OUT: contexts, dict(list), a dictionary of
             {word: [(context, type(context), position in full_text)]}
     '''
     contexts = {}
