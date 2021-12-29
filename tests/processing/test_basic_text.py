@@ -39,8 +39,8 @@ def test_group_all():
                                     'may', 'never', 'know', 'or', 'will',
                                     'they']
     assert computed[npci.QUOTES] == ['"the world may never know"']
-    assert computed[npci.SENTENCES] == ['Mr.',
-        'Shark went to an M&M party to get higher than Mt.', 'Everest.']
+    assert computed[npci.SENTENCES] == ['Mr.', 'Shark went to an M&M party to'
+                                        ' get higher than Mt.', 'Everest.']
     assert computed[npci.EXCLAMATIONS] == ['He was 9 ft tall, but felt taller'
                                            ' than 90 million miles on April '
                                            '10, 2014!']
@@ -50,5 +50,5 @@ def test_group_all():
     assert computed[npci.ABBREVIATIONS] == ['Mr.', ' Mt. ']
     assert computed[npci.NUMBERS] == ['9', '90', '10', '2014']
     assert computed[npci.NUMBERS_WITH_EXPRESSION] == ['9 ft tall',
-                                                       '90 million miles',
-                                                       '10, 2014']
+                                                      '90 million miles',
+                                                      '10, 2014']

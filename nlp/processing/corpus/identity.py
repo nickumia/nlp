@@ -29,8 +29,11 @@ tag_opening = r'\<(?!=|\/)[a-z]+\-?[a-z]+[0-9]*\>'
 tag_closing = r'\<\/[a-z]+\-?[a-z]+[0-9]*\>'
 long_date = r'[a-z]+ ?[0-9]+, ?[0-9]{4}'
 
-GROUP_NAMES = [WORDS, QUOTES, SENTENCES, QUESTIONS, EXCLAMATIONS, ENCLOSURES, ABBREVIATIONS, NUMBERS, NUMBERS_WITH_EXPRESSION]
-GROUP_SEQUENCES = [char_word, char_quote, char_sentence, char_question, char_exclamation, char_enclosure, char_abbreviation, char_number, char_number_with_expression]
+GROUP_NAMES = [WORDS, QUOTES, SENTENCES, QUESTIONS, EXCLAMATIONS,
+               ENCLOSURES, ABBREVIATIONS, NUMBERS, NUMBERS_WITH_EXPRESSION]
+GROUP_SEQUENCES = [char_word, char_quote, char_sentence, char_question,
+                   char_exclamation, char_enclosure, char_abbreviation,
+                   char_number, char_number_with_expression]
 
 
 def group(body):
