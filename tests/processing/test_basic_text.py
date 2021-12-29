@@ -3,7 +3,7 @@ from nlp.processing.inputs import BasicText
 from nlp.processing.filters import sanitize
 from nlp.processing.corpus.representativeness import occurences
 import nlp.processing.corpus.identity as npci
-import nlp.processing.appraisal.contexts as npac
+import nlp.processing.appraisal.basic_text as npac
 
 
 npci.ABBREVIATION_LENGTH = 2
