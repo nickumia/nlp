@@ -2,6 +2,23 @@
 # of words based on their context.
 
 from nlp.language import constants
+import nltk
+
+
+def posTag(statement):
+    '''
+    IN: statement, list(str), a list of words within context
+    OUT: pos_tags, list(tuple(str)), a list of words paired with their pos
+    '''
+    return nltk.pos_tag(statement)
+
+
+def checkBasePower(word):
+    '''
+    IN: word, tuple, (word, pos)
+    OUT: int, base power of word
+    '''
+    return constants.BASE_POWER[word[1]]
 
 
 def fuzzifykeyness(m, a, d, n):

@@ -38,9 +38,16 @@ WP = 'WH-pronoun'
 WPs = 'WH-possesive'
 WRB = 'WH-adverb'
 
-FUNCTION_WORDS = dict.fromkeys([DT, EX, IN, IS, RP, TO], 1)
-CONTENT_WORDS = dict.fromkeys([POS, PRP, PRPs], 2.2)
-CONTENT_WORDS.update(dict.fromkeys(
+BASE_POWER = {}
+
+# Function Words
+BASE_POWER.update(dict.fromkeys([DT, EX, IN, IS, RP, TO], 1))
+
+# Content Words
+BASE_POWER.update(dict.fromkeys([POS, PRP, PRPs], 2.2))
+BASE_POWER.update(dict.fromkeys(
     [CD, JJ, NN, NNS, RB, VB, VBD, VBG, VBN, VBP, VBZ], 3))
-CONTENT_WORDS.update(dict.fromkeys([CC, JJR, JJS, MD, PDT, RBR, RBS], 3.8))
-UNIQUE_WORDS = dict.fromkeys([FW, NNP, NNPS, UH, WDT, WP, WPs, WRB], 5)
+BASE_POWER.update(dict.fromkeys([CC, JJR, JJS, MD, PDT, RBR, RBS], 3.8))
+
+# Unique Words
+BASE_POWER.udpate(dict.fromkeys([FW, NNP, NNPS, UH, WDT, WP, WPs, WRB], 5))
