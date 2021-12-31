@@ -72,7 +72,7 @@ def test_context_generation():
         ('green makes me happy!', npci.EXCLAMATIONS, 41)]
 
 
-def test_checkNgrams():
+def test_checkNgrams_before():
     text = ['this', 'is', 'not', 'a', 'negative', 'statement']
     text2 = ['this', 'is', 'a', 'positive', 'statement']
     text3 = ['this', 'is', 'truly', 'a', 'negative', 'statement']
@@ -82,10 +82,18 @@ def test_checkNgrams():
     assert npci.checkNGrams(3, text3, 'statement', pattern=negative) == 1
     assert npci.checkNGrams(3, text, 'statement', pattern=negative) == 2
 
+
+def test_checkNgrams_full():
+    negative = ['not', 'negative']
     text4 = ['this', 'is', 'a', 'sentence', 'with', 'some', 'paddinging',
              'surrounding', 'the', 'negative', 'word', 'because', 'we',
              'need', 'to', 'test', 'before', 'and', 'after']
 
-
     assert npci.checkNGrams(3, text4, 'word', pattern=negative) == 1
     assert npci.checkNGrams(3, text4, 'statement', pattern=negative) == 0
+
+
+def test_checkNgrams_empty_pattern():
+    text = ['this', 'is', 'truly', 'a', 'negative', 'statement']
+
+    assert npci.checkNGrams(3, text, 'word') == 0
