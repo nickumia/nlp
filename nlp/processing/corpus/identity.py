@@ -36,7 +36,24 @@ GROUP_SEQUENCES = [char_word, char_quote, char_sentence, char_question,
                    char_number, char_number_with_expression]
 
 
-def group(body):
+def getWords(contexts):
+    '''
+    IN: contexts, group(text)
+    OUT: list(words)
+    '''
+    words = []
+    for context in contexts:
+        matches = re.findall(char_word, context[0], flags=re.I | re.M | re.U)
+        if matches != []:
+            if type(matches[0]) == tuple:
+                words += [i[0] for i in matches]
+            else:
+                words += matches
+
+    return words
+
+
+def group(body, sanitizer=(lambda x: x)):
     ''''
     IN: body: str, a single string representing the entire input
     OUT: group_map: dict(re.match), a dictionary of matches per group
@@ -47,8 +64,8 @@ def group(body):
         matches = re.findall(party, body, flags=re.I | re.M | re.U)
         if matches != []:
             if type(matches[0]) == tuple:
-                group_map[GROUP_NAMES[i]] = [i[0] for i in matches]
+                group_map[GROUP_NAMES[i]] = [sanitizer(i[0]) for i in matches]
             else:
-                group_map[GROUP_NAMES[i]] = matches
+                group_map[GROUP_NAMES[i]] = sanitizer(matches)
 
     return group_map

@@ -1,7 +1,7 @@
 # Track corpus-related metrics and statistics
 
 
-def totalcount(body):
+def totalCount(body):
     '''
     IN: body: list(str), a list of individual words
     OUT: total: int, the number of total words
@@ -34,4 +34,4 @@ def ttr(body):
     OUT: types: int, the number of unique types
     OUT: tokens, init, the number of all tokens
     '''
-    return len(unique(body)), totalcount(body)
+    return len(unique(body)), totalCount(body)
