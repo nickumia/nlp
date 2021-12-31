@@ -8,21 +8,17 @@ Natural Language Processing Core
 
 ## Development Environment
 
-Install Dependencies
+### Install Dependencies
 
 (Inside of a python interpreter,) run:
 ```
-		nltk.download('punkt')
-		nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 ```
 
-Build test image,
+### Build, Lint, Test
 ```
-		make build
-```
-
-Run lint/tests,
-```
-		make lint
-		make test
+make build	# Build the test image
+make lint	# Lint python code
+make test	# Run all tests
 ```
