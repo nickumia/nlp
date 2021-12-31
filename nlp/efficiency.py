@@ -26,3 +26,10 @@ def ttr2(body):
         else:
             a[word] += 1
     return len(a.keys())/len(body)
+
+
+def dictmax(dm):
+    return max(dm.values())
+
+def listmax(lm):
+    return max(lm)

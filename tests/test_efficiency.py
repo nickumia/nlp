@@ -18,3 +18,21 @@ body=["a", "b", "c", "b"]*50
     print('A: %f' % A.run())
     print('B: %f' % B.run())
     assert A.run() < B.run()
+
+
+def test_efficiency_max():
+    iterations = 1000
+    A = Time('''
+from nlp.efficiency import dictmax
+body={i:i for i in range(1000)}
+             ''',
+             '''dictmax(body)''', iterations)
+    B = Time('''
+from nlp.efficiency import listmax
+body=[i for i in range(1000)]
+             ''',
+             '''listmax(body)''', iterations)
+
+    print('A: %f' % A.run())
+    print('B: %f' % B.run())
+    assert A.run() > B.run()
