@@ -31,5 +31,6 @@ def ttr2(body):
 def dictmax(dm):
     return max(dm.values())
 
+
 def listmax(lm):
     return max(lm)
