@@ -9,12 +9,19 @@ npci.ABBREVIATION_LENGTH = 2
 
 
 def test_basictext_init():
-    text = BasicText('Grass is green.  Green is a nice color.  Green makes '
-                     'me happy!  But colorless green ideas sleep furiously.')
+    text = BasicText('A very very simple exam.')
 
-    wmeaning, confidence = nlf.getFuzzyMeaning(text.groups,
+    meanings, confidence = nlf.getFuzzyMeaning(text.groups,
                                                text.contexts,
                                                occurences(text.words),
                                                totalCount(text.words))
-    print(wmeaning)
-    print(confidence)
+    # This is subject to change when definition lookups are enabled
+    assert meanings['exam'][0][0][0] == 0.2
+    assert meanings['exam'][0][0][1] == 0.6000000000000001
+    assert meanings['exam'][0][0][2] == 0.6000000000000001
+    assert meanings['exam'][0][0][3] == 2.4000000000000004
+    assert meanings['exam'][0][1] == ['A', 'exam', 'simple', 'very']
+    assert meanings['exam'][1] == [('A very very simple exam.',
+                                    'sentences_only',0)]
+    assert int(confidence['exam']) == 92
+    assert int(confidence['very']) == 96
