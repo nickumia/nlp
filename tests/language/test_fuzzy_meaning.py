@@ -22,6 +22,6 @@ def test_basictext_init():
     assert meanings['exam'][0][0][3] == 2.4000000000000004
     assert meanings['exam'][0][1] == ['A', 'exam', 'simple', 'very']
     assert meanings['exam'][1] == [('A very very simple exam.',
-                                    'sentences_only',0)]
+                                    'sentences_only', 0)]
     assert int(confidence['exam']) == 92
     assert int(confidence['very']) == 96
