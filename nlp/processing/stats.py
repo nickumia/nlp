@@ -52,10 +52,14 @@ def confidence_level(x, mu, sd):
     '''
     position = (x - mu) / sd
     if abs(position) <= 1:
-        return (lambda x: x*(68-50) + 50 if x > 0 else 50.0 - x*(32-50))(position)
+        return (lambda x: x*(68-50) + 50 if x > 0
+                else 50.0 - x*(32-50))(position)
     elif abs(position) <= 2:
-        return (lambda x: (x%1)*(95-68) + 68 if x > 0 else 32.0 - (x%-1)*(5-32))(position)
+        return (lambda x: (x % 1)*(95-68) + 68 if x > 0
+                else 32.0 - (x % -1)*(5-32))(position)
     elif abs(position) <= 3:
-        return (lambda x: (x%1)*(99-95) + 95 if x > 0 else 5.0 - (x%-1)*(1-5))(position)
+        return (lambda x: (x % 1)*(99-95) + 95 if x > 0
+                else 5.0 - (x % -1)*(1-5))(position)
     else:
-        return (lambda x: (x%1)*(100-99) + 99 if x > 0 else 1.0 - (x%-1)*(0-1))(position)
+        return (lambda x: (x % 1)*(100-99) + 99 if x > 0
+                else 1.0 - (x % -1)*(0-1))(position)

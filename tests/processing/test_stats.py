@@ -29,4 +29,3 @@ def test_confidence_level():
     assert nps.confidence_level(15, 10, 2.5) == 68
     assert nps.confidence_level(3.5, 4, 1) == 41
     assert nps.confidence_level(990, 100, .5) == 99
-
