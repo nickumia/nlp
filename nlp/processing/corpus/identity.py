@@ -69,3 +69,42 @@ def group(body, sanitizer=(lambda x: x)):
                 group_map[GROUP_NAMES[i]] = sanitizer(matches)
 
     return group_map
+
+
+def checkNGrams(n, text, word, pattern=[]):
+    '''
+    IN: n, int, number of grams before/after word
+    IN: text, list(str), context
+    IN: word, str, word of interest
+    IN: pattern, list(str), negative-like words
+    OUT: recursively try to identify context of pattern
+    '''
+    # TODO: Optimize this
+    relevant = 0
+    for i, t in enumerate(text):
+        if word == t:
+            relevant = i
+
+    lowest = (lambda x: x-n if x > n else 0)
+    highest = (lambda y: y+n if y+n < len(text) else len(text)-1)
+
+    if lowest(relevant) == highest(relevant):
+        return 0
+    if len(text[lowest(relevant):highest(relevant)]) == 1:
+        if text[lowest(relevant):highest(relevant)][0] in pattern:
+            return 1
+        else:
+            return 0
+
+    if text[lowest(relevant)] in pattern or text[highest(relevant)] in pattern:
+        return 1 + checkNGrams(n-1, text[1:], word, pattern)
+        # else:
+        #     for i, rel in enumerate(text[lowest(relevant):highest(relevant)]):
+        #         print('r', rel)
+        #         print(((2*n+1-i)/(2*n+1)))
+        #         if pat == rel:
+        #             print(((2*n+1-i)/(2*n+1)), text[lowest(i):i] + text[i+1:])
+        #             return ((2*n+1-i)/(2*n+1)) * \
+        #                     checkNGrams(n-1, text[lowest(i):i] + text[i+1:],
+        #                            word, pattern)
+    return checkNGrams(n-1, text, word, pattern)
