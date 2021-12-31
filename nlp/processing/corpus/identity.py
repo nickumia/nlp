@@ -96,15 +96,10 @@ def checkNGrams(n, text, word, pattern=[]):
         else:
             return 0
 
-    if text[lowest(relevant)] in pattern or text[highest(relevant)] in pattern:
+    if text[lowest(relevant)] in pattern:
         return 1 + checkNGrams(n-1, text[1:], word, pattern)
-        # else:
-        #     for i, rel in enumerate(text[lowest(relevant):highest(relevant)]):
-        #         print('r', rel)
-        #         print(((2*n+1-i)/(2*n+1)))
-        #         if pat == rel:
-        #             print(((2*n+1-i)/(2*n+1)), text[lowest(i):i] + text[i+1:])
-        #             return ((2*n+1-i)/(2*n+1)) * \
-        #                     checkNGrams(n-1, text[lowest(i):i] + text[i+1:],
-        #                            word, pattern)
+    if text[highest(relevant)] in pattern:
+        # TODO: test this
+        return ((2*n+1-i)/(2*n+1)) + \
+                checkNGrams(n-1,text[lowest(i):i] + text[i+1:], word, pattern)
     return checkNGrams(n-1, text, word, pattern)
