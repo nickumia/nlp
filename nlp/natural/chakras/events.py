@@ -5,6 +5,21 @@ import nlp.processing.corpus.identity as npci
 import nlp.natural.chakras.base as nnc
 
 
+LL_TAG = "low"
+LM_TAG = "low_medium"
+MM_TAG = "medium"
+MH_TAG = "medium_high"
+HH_TAG = "high"
+
+EVENT_TAGS = {
+    LL_TAG: (1.1, (0, 20)),
+    LM_TAG: (0.7, (20, 40)),
+    MM_TAG: (0.3, (40, 60)),
+    MH_TAG: (0.7, (60, 80)),
+    HH_TAG: (1.1, (80, 100))
+}
+
+
 def determineInfluence(model, meanings, confidence, learn=False):
     '''
     IN: meanings, language.fuzzy.getFuzzyMeaning
@@ -97,3 +112,14 @@ def inverseInfluence(meaning):
         ngram[word] = math.pow(-1, instances)
 
     return ngram
+
+
+def eventChange(percent):
+    '''
+    IN: percent, float, representation of individual chakra rating
+    OUT: reference fuzzy change value
+    '''
+    for tag, value_range in EVENT_TAGS.items():
+        if percent >= value_range[1][0] and percent <= value_range[1][1]:
+            return value_range[0]
+    return 0
