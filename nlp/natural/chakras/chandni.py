@@ -8,8 +8,8 @@ class Chandni():
     def __init__(self, text):
         self.model = nncb.make_body()
         # self.text = BasicText(text)
-        self.events = numpy.zeros((7,7))
-        self.texts = numpy.zeros((7,7))
+        self.events = numpy.zeros((7, 7))
+        self.texts = numpy.zeros((7, 7))
         self.match = 0
 
         self.PCHAKRA = {}
@@ -17,8 +17,8 @@ class Chandni():
 
     def run(self, meanings, confidence, learn):
         nnce.determineInfluence(self.model, meanings, confidence, learn=learn)
-        self.PCHAKRA = self.model.chakraDistribution(model.P_CHAKRA)
-        self.QCHAKRA = self.model.chakraDistribution(model.Q_CHAKRA)
+        self.PCHAKRA = self.model.chakraDistribution(self.model.P_CHAKRA)
+        self.QCHAKRA = self.model.chakraDistribution(self.model.Q_CHAKRA)
 
     def train(self, meanings, confidence, particle):
         # meanings, confidence = nlf.getFuzzyMeaning(self.text.groups,
@@ -27,10 +27,10 @@ class Chandni():
         #                                            totalCount(self.text.words))  # NOQA
         self.run(meanings, confidence, True)
         self.model.CHAKRA_TRAIN_HISTORY[particle] = (
-            (self.model.CHAKRAS[model.P_CHAKRA][model.POWER_LEVEL] - \
-             self.model.CHAKRAS[model.Q_CHAKRA][model.POWER_LEVEL]),
-            self.model.CHAKRAS[model.P_CHAKRA],
-            self.model.CHAKRAS[model.Q_CHAKRA]
+            (self.model.CHAKRAS[self.model.P_CHAKRA][self.model.POWER_LEVEL] -
+             self.model.CHAKRAS[self.model.Q_CHAKRA][self.model.POWER_LEVEL]),
+            self.model.CHAKRAS[self.model.P_CHAKRA],
+            self.model.CHAKRAS[self.model.Q_CHAKRA]
         )
 
         for i, chakra1 in enumerate(nncb.CHAKRA_ONLY):
@@ -38,8 +38,8 @@ class Chandni():
             for j, chakra2 in enumerate(nncb.CHAKRA_ONLY):
                 superman = nnce.eventChange(self.PCHAKRA[chakra2])
 
-                self.events[i][j] += round(batman - superman,2)
-                self.texts[i][j] += round(batman - superman,2)
+                self.events[i][j] += round(batman - superman, 2)
+                self.texts[i][j] += round(batman - superman, 2)
 
                 if self.events[i][j] < 0 and self.texts[i][j] < 0:
                     self.match += 1
@@ -53,7 +53,7 @@ class Chandni():
     def test(self, meanings, confidence, particle):
         self.run(meanings, confidence, False)
         self.model.CHAKRA_TEST_HISTORY[particle] = (
-            (self.model.CHAKRAS[self.model.P_CHAKRA][self.model.POWER_LEVEL] - \  # NOQA
+            (self.model.CHAKRAS[self.model.P_CHAKRA][self.model.POWER_LEVEL] -
              self.model.CHAKRAS[self.model.Q_CHAKRA][self.model.POWER_LEVEL]),
             self.model.CHAKRAS[self.model.P_CHAKRA],
             self.model.CHAKRAS[self.model.Q_CHAKRA]
@@ -66,7 +66,7 @@ class Chandni():
         x_truth = []
         x_insight = []
         x_attachment = []
-        # total = 0
+        total = 0
 
         union = (lambda x: x if type(x) != tuple else x[0]+x[1])
         for particle, interaction in self.model.CHAKRA_TEST_HISTORY.items():

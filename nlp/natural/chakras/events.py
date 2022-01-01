@@ -2,6 +2,7 @@
 
 import math
 import nlp.processing.corpus.identity as npci
+import nlp.processing.interaction.text as npit
 import nlp.natural.chakras.base as nnc
 
 
@@ -69,9 +70,10 @@ def determineInfluence(model, meanings, confidence, learn=False):
                                                  confidence[sense])
                         else:
                             if learn:
-                                a = input(("Does " + sense + " influence "
-                                           "" + chakra + "\n\n?"))
-                                if a == 'y':
+                                a = npit.terminal_yes_no(
+                                    ("Does " + sense + " influence "
+                                     "" + chakra + "\n\n?"))
+                                if a:
                                     model.CHAKRA_INFLUENCE[chakra] += sense
                                 else:
                                     model.CHAKRA_NONINFLUENCE[chakra] += sense
