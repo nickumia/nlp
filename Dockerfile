@@ -7,4 +7,4 @@ WORKDIR /pac
 COPY requirements.txt dev-requirements.txt codecov.yml setup.py /pac/
 COPY nlp/ /pac/nlp/
 
-RUN pip install -r requirements.txt -r dev-requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt -r dev-requirements.txt
