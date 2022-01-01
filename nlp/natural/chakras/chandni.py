@@ -27,8 +27,8 @@ class Chandni():
         #                                            totalCount(self.text.words))  # NOQA
         self.run(meanings, confidence, True)
         self.model.CHAKRA_TRAIN_HISTORY[particle] = (
-            (self.model.CHAKRAS[self.model.P_CHAKRA][self.model.POWER_LEVEL] -
-             self.model.CHAKRAS[self.model.Q_CHAKRA][self.model.POWER_LEVEL]),
+            (self.model.CHAKRAS[self.model.P_CHAKRA][nncb.POWER_LEVEL] -
+             self.model.CHAKRAS[self.model.Q_CHAKRA][nncb.POWER_LEVEL]),
             self.model.CHAKRAS[self.model.P_CHAKRA],
             self.model.CHAKRAS[self.model.Q_CHAKRA]
         )
@@ -53,8 +53,8 @@ class Chandni():
     def test(self, meanings, confidence, particle):
         self.run(meanings, confidence, False)
         self.model.CHAKRA_TEST_HISTORY[particle] = (
-            (self.model.CHAKRAS[self.model.P_CHAKRA][self.model.POWER_LEVEL] -
-             self.model.CHAKRAS[self.model.Q_CHAKRA][self.model.POWER_LEVEL]),
+            (self.model.CHAKRAS[self.model.P_CHAKRA][nncb.POWER_LEVEL] -
+             self.model.CHAKRAS[self.model.Q_CHAKRA][nncb.POWER_LEVEL]),
             self.model.CHAKRAS[self.model.P_CHAKRA],
             self.model.CHAKRAS[self.model.Q_CHAKRA]
         )

@@ -50,7 +50,10 @@ def confidence_level(x, mu, sd):
     IN: mu, float, mean
     IN: sd, float, standard deviation
     '''
-    position = (x - mu) / sd
+    try:
+        position = (x - mu) / sd
+    except ZeroDivisionError:
+        position = 4
     if abs(position) <= 1:
         return (lambda x: x*(68-50) + 50 if x > 0
                 else 50.0 - x*(32-50))(position)

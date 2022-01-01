@@ -55,7 +55,7 @@ def determineInfluence(model, meanings, confidence, learn=False):
                         if sense in model.CHAKRA_INFLUENCE[chakra]:
                             model.EVENT_WORDS[sense] = True
                             model.recover(chakra, nnc.infuse(
-                                meaning[0][0][i]*is_negative(sense),
+                                meaning[0][0][j]*is_negative(sense),
                                 confidence[sense]), single=model.P_CHAKRA)
                             ptotal += sum(meaning[0][0])
                             plevel += nnc.infuse(sum(meaning[0][0]),
@@ -63,7 +63,7 @@ def determineInfluence(model, meanings, confidence, learn=False):
                         elif sense in model.CHAKRA_NONINFLUENCE[chakra]:
                             model.EVENT_WORDS[sense] = True
                             model.recover(chakra, nnc.infuse(
-                                meaning[0][0][i]*is_negative(sense),
+                                meaning[0][0][j]*is_negative(sense),
                                 confidence[sense]), single=model.Q_CHAKRA)
                             qtotal += sum(meaning[0][0])
                             qlevel += nnc.infuse(sum(meaning[0][0]),

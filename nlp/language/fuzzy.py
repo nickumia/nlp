@@ -58,7 +58,7 @@ def getFuzzyMeaning(word_groups, context, frequency, total,
         real_words[word] = sorted([w for w in npci.getWords(conx)])
         real_words[word] = npf.sortabasedonb(npf.combineLikeValues(
             [[keyness[sanitizer(inst)] for inst in real_words[word]],
-             real_words[word]]
+             [sanitizer(w) for w in real_words[word]]]
         ))
 
     for word, conx in context.items():
