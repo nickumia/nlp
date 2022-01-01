@@ -1,5 +1,5 @@
 
-import nlp.natural.chakras as nnc
+import nlp.natural.chakras.base as nnc
 
 
 def test_model_init():

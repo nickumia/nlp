@@ -2,8 +2,8 @@
 from nlp.processing.inputs import BasicText
 from nlp.processing.corpus.representativeness import occurences, totalCount
 import nlp.language.fuzzy as nlf
-import nlp.natural.chakras as nnc
-import nlp.natural.chakra_event as nne
+import nlp.natural.chakras.base as nnc
+import nlp.natural.chakras.events as nne
 
 
 def test_influence_basic():

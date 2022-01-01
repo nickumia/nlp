@@ -2,7 +2,7 @@
 
 import math
 import nlp.processing.corpus.identity as npci
-import nlp.natural.chakras as nnc
+import nlp.natural.chakras.base as nnc
 
 
 def determineInfluence(model, meanings, confidence, learn=False):
