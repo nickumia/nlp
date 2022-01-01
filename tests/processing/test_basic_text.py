@@ -42,7 +42,8 @@ def test_group_all():
                                     'they']
     assert computed[npci.QUOTES] == ['"the world may never know"']
     assert computed[npci.SENTENCES] == ['Mr.', 'Shark went to an M&M party to'
-                                        ' get higher than Mt.', 'Everest.']
+                                        ' get higher than Mt.', 'Everest.',
+                                        'the world may never know") (..']
     assert computed[npci.EXCLAMATIONS] == ['He was 9 ft tall, but felt taller'
                                            ' than 90 million miles on April '
                                            '10, 2014!']
@@ -67,7 +68,7 @@ def test_context_generation():
     assert computed['green'] == [
         ('grass is green.', npci.SENTENCES, 0),
         ('green is a nice color.', npci.SENTENCES, 17),
-        ('but colorless green ideas sleep furiously..', npci.SENTENCES, 64),
+        ('but colorless green ideas sleep furiously.', npci.SENTENCES, 64),
         ('green makes me happy!', npci.EXCLAMATIONS, 41)]
 
 

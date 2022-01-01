@@ -20,8 +20,8 @@ char_word = r'(\b([a-z]+[\_\&\@\.\%\^\*\-\+\']?[0-9]?)+([a-z]{1,})?\b)'
 char_quote = r'(\".*?\")'
 # TODO: Fix char_sentence..
 # This causes a server error without ending period, I don't know why :O
-char_sentence = r'(\b([a-z]\s?(\@|\&|\#|\"|,)?\s?\.?)+?\.\"?)'
-# char_sentence = r'(\b((?!=|\.|!|\?)([a-z]\.[a-z]\.?)?(\"(.*)\")?.)+((\.){1,}|(\n)|$)(?=[^\"])?)'  # NOQA
+# char_sentence = r'(\b([a-z]\s?(\@|\&|\#|\"|,)?\s?\.?)+?\.\"?)'
+char_sentence = r'(\b((?!=|\.|!|\?)([a-z]\.[a-z]\.?)?(\"(.*)\")?.)+((\.){1,}|(\n)|$)(?=[^\"])?)'  # NOQA
 char_question = r'(\b(((?!=|\?|\.|\!).(\".*\")?)+)(\?)+)'
 char_exclamation = r'(\b(((?!=|\?|\.|\!).(\".*\")?)+)(\!)+)'
 char_enclosure = r'(\(((?!=|\)).)*\))|(\{((?!=|\}).)*\})|(\[((?!=|\]).)*\])'  # NOQA
@@ -64,10 +64,7 @@ def group(body, sanitizer=(lambda x: x)):
     group_map = {}
 
     for i, party in enumerate(GROUP_SEQUENCES):
-        if party == char_sentence:
-            matches = re.findall(party, body+'.', flags=re.I | re.M | re.U)
-        else:
-            matches = re.findall(party, body, flags=re.I | re.M | re.U)
+        matches = re.findall(party, body, flags=re.I | re.M | re.U)
         if matches != []:
             if type(matches[0]) == tuple:
                 group_map[GROUP_NAMES[i]] = [sanitizer(i[0]) for i in matches]
