@@ -47,6 +47,26 @@ class Chakras():
 
         self.CHAKRA_TEST_HISTORY = {}
         self.CHAKRA_TRAIN_HISTORY = {}
+        self.EVENT_WORDS = {}
+
+    def addPower(self, version=None):
+        if version is None:
+            return sum([self.CHAKRAS[self.P_CHAKRA][EARTH],
+                       self.CHAKRAS[self.P_CHAKRA][WATER],
+                       self.CHAKRAS[self.P_CHAKRA][FIRE],
+                       self.CHAKRAS[self.P_CHAKRA][HEART],
+                       self.CHAKRAS[self.P_CHAKRA][SOUND],
+                       self.CHAKRAS[self.P_CHAKRA][LIGHT],
+                       self.CHAKRAS[self.P_CHAKRA][COSMIC]])
+        if version in [self.P_CHAKRA, self.N_CHAKRA, self.Q_CHAKRA]:
+            return sum([self.CHAKRAS[version][EARTH],
+                       self.CHAKRAS[version][WATER],
+                       self.CHAKRAS[version][FIRE],
+                       self.CHAKRAS[version][HEART],
+                       self.CHAKRAS[version][SOUND],
+                       self.CHAKRAS[version][LIGHT],
+                       self.CHAKRAS[version][COSMIC]])
+        return 0
 
     def reset(self):
         self.P_CHAKRA = dict.fromkeys(CHAKRA_SPEC, 0)

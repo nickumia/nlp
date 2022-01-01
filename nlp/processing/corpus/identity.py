@@ -101,5 +101,5 @@ def checkNGrams(n, text, word, pattern=[]):
     if text[highest(relevant)] in pattern:
         # TODO: test this
         return ((2*n+1-i)/(2*n+1)) + \
-                checkNGrams(n-1,text[lowest(i):i] + text[i+1:], word, pattern)
+                checkNGrams(n-1, text[lowest(i):i] + text[i+1:], word, pattern)
     return checkNGrams(n-1, text, word, pattern)
