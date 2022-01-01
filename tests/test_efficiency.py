@@ -36,3 +36,24 @@ body=[i for i in range(1000)]
     print('A: %f' % A.run())
     print('B: %f' % B.run())
     assert A.run() > B.run()
+
+
+def test_efficiency_group():
+    iterations = 1
+    # partial = npci.group(text)
+    # computed = npac.generate(partial, text)
+    A = Time('''
+import nlp.processing.corpus.identity as npci
+text="test string"
+             ''',
+             '''npci.group(text)''', iterations)
+    B = Time('''
+import nlp.processing.corpus.identity as npci
+text="test string "*500
+             ''',
+             '''npci.group(text)''', iterations)
+
+    print('A: %f' % A.run())
+    print('B: %f' % B.run())
+    assert A.run() < B.run()
+    assert B.run() < 3

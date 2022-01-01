@@ -63,12 +63,11 @@ def test_context_generation():
     partial = npci.group(text)
     computed = npac.generate(partial, text)
 
-    print(computed['green'])
     assert computed['grass'] == [('grass is green.', npci.SENTENCES, 0)]
     assert computed['green'] == [
         ('grass is green.', npci.SENTENCES, 0),
         ('green is a nice color.', npci.SENTENCES, 17),
-        ('but colorless green ideas sleep furiously.', npci.SENTENCES, 64),
+        ('but colorless green ideas sleep furiously..', npci.SENTENCES, 64),
         ('green makes me happy!', npci.EXCLAMATIONS, 41)]
 
 

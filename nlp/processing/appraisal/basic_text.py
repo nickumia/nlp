@@ -21,7 +21,7 @@ def generate(groups, full_text):
                 continue
             for context in results:
                 if word.strip() in context:
-                    position = locate(full_text, context)
+                    position = locate(full_text+'.', context)
                     if word in contexts:
                         contexts[word] += [(context,
                                             id_group,
