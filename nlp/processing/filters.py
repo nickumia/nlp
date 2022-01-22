@@ -1,6 +1,13 @@
 
-def sanitize(word):
-    return lowercase(word)
+import contractions
+
+
+def pre_sanitize(text):
+    return lowercase(contractions.fix(text))
+
+
+def semi_sanitize(text):
+    return contractions.fix(text)
 
 
 def lowercase(word):

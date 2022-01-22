@@ -8,9 +8,9 @@ class BasicText():
 
     def __init__(self, original):
         self.text = original
-        self.groups = npci.group(original)
-        self.words = [npf.sanitize(i) for i in self.groups[npci.WORDS]]
-        self.contexts = npab.generate(self.groups, original)
+        self.groups = npci.group(npf.semi_sanitize(original))
+        self.words = [npf.pre_sanitize(i) for i in self.groups[npci.WORDS]]
+        self.contexts = npab.generate(self.groups, npf.semi_sanitize(original))
 
     def getWords(self):
         return self.words
