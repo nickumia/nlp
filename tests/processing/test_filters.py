@@ -1,6 +1,7 @@
 
 import nlp.processing.filters as npf
 
+
 def test_pre_sanitize():
     assert npf.pre_sanitize("Do you think they'd answer?") == \
             "do you think they would answer?"
@@ -9,6 +10,7 @@ def test_pre_sanitize():
 def test_semi_sanitize():
     assert npf.semi_sanitize("What're they going to do about the PIZZA?!") == \
             "What are they going to do about the PIZZA?!"
+
 
 def test_lowercase():
     assert npf.lowercase("SUPER Important!") == "super important!"

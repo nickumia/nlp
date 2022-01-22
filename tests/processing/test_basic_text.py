@@ -58,8 +58,9 @@ def test_group_all():
 
 
 def test_context_generation():
-    text = pre_sanitize('Grass is green.  Green is a nice color.  Green makes '
-                    'me happy!  But colorless green ideas sleep furiously.')
+    text = pre_sanitize('Grass is green.  Green is a nice color.  Green '
+                        'makes me happy!  But colorless green ideas sleep '
+                        'furiously.')
 
     partial = npci.group(text)
     computed = npac.generate(partial, text)
