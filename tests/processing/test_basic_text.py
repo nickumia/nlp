@@ -1,6 +1,6 @@
 
 from nlp.processing.inputs import BasicText
-from nlp.processing.filters import sanitize
+from nlp.processing.filters import pre_sanitize
 from nlp.processing.corpus.representativeness import occurences
 import nlp.processing.corpus.identity as npci
 import nlp.processing.appraisal.basic_text as npac
@@ -58,8 +58,9 @@ def test_group_all():
 
 
 def test_context_generation():
-    text = sanitize('Grass is green.  Green is a nice color.  Green makes '
-                    'me happy!  But colorless green ideas sleep furiously.')
+    text = pre_sanitize('Grass is green.  Green is a nice color.  Green '
+                        'makes me happy!  But colorless green ideas sleep '
+                        'furiously.')
 
     partial = npci.group(text)
     computed = npac.generate(partial, text)
