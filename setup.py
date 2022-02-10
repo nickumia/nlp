@@ -11,6 +11,6 @@ setup(
     author='nickumia',
     install_requires=[
         'contractions',
-    ]
+    ],
     packages=find_packages(include=['nlp', 'nlp.*'])
 )
