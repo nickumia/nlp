@@ -9,5 +9,5 @@ setup(
         for use as a python package.
     """,
     author='nickumia',
-    packages=find_packages(include=['nlp'])
+    packages=find_packages(include=['nlp', 'nlp.*'])
 )
