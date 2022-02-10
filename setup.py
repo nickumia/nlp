@@ -9,5 +9,8 @@ setup(
         for use as a python package.
     """,
     author='nickumia',
+    install_requires=[
+        'contractions',
+    ]
     packages=find_packages(include=['nlp', 'nlp.*'])
 )
