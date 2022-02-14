@@ -13,7 +13,7 @@ lint:
 	docker run --rm -v "$(shell pwd)":/pac nlp:dev bash -c "cd /pac && flake8 . --count --show-source --statistics"
 
 test:
-	docker run --rm -v "$(shell pwd)":/pac -v "$(shell echo ${HOME})"/nltk_data:/root/nltk_data nlp:dev bash -c "coverage run --source=nlp -m pytest --disable-pytest-warnings && coverage report --omit=\"tests/*\""
+	docker run --rm -v "$(shell pwd)":/pac -v "$(shell echo ${HOME})"/nltk_data:/root/nltk_data nlp:dev bash -c "coverage run --source=nlp -m pytest --disable-pytest-warnings $(FILE) && coverage report --omit=\"tests/*\""
 
 export NLTK_SETUP_TEST
 test-cov:

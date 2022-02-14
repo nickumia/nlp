@@ -130,3 +130,5 @@ dmypy.json
 
 # Custom
 *.swp
+dictionary.dump
+test.dump

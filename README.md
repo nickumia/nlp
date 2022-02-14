@@ -21,4 +21,8 @@ nltk.download('averaged_perceptron_tagger')
 make build	# Build the test image
 make lint	# Lint python code
 make test	# Run all tests
+
+# To run a specific test,
+# make test FILE=<file_to_test>
+make test FILE=tests/language/test_fuzzy_meaning.py
 ```

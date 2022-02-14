@@ -3,6 +3,7 @@
 
 import nlp.processing.corpus.identity as npci
 import nlp.processing.filters as npf
+import nlp.processing.appraisal.dictionary as npad
 from nlp.language import constants
 import nltk
 
@@ -28,17 +29,21 @@ def checkBasePower(pos):
     return constants.BASE_POWER[pos]
 
 
-def checkSenses(word):
+def checkSenses(word, remote=False):
     '''
     IN: word, str
     OUT: int, # of sense/definitions
     '''
-    # TODO: get definition lookup
+    if remote:
+        try:
+            return npad.DICTIONARY.numberOfSenses(word)
+        except BaseException:
+            pass
     return 0
 
 
 def getFuzzyMeaning(word_groups, context, frequency, total,
-                    sanitizer=npf.lowercase):
+                    sanitizer=npf.lowercase, remote=False):
     '''
     IN: word_groups, processing.corpus.identity.group(text)
     IN: context, processing.corpus.identity.generate(1, text)
@@ -47,7 +52,8 @@ def getFuzzyMeaning(word_groups, context, frequency, total,
     '''
     # TODO: optimize sanitation
     (keyness, base, amplify, damp) = assignKeyness(context, frequency,
-                                                   total, normal=False)
+                                                   total, normal=False,
+                                                   remote=remote)
     keyness_confidence = keynessConfidence(keyness, base, amplify, damp)
 
     real_words = {}
@@ -73,7 +79,7 @@ def getFuzzyMeaning(word_groups, context, frequency, total,
 
 
 def assignKeyness(context, frequency, total, normal=False,
-                  sanitizer=npf.lowercase):
+                  sanitizer=npf.lowercase, remote=False):
     '''
     IN: context, dict(list)
     IN: frequency, dict(float)
@@ -92,7 +98,8 @@ def assignKeyness(context, frequency, total, normal=False,
     for i, word in enumerate(context.keys()):
         word = sanitizer(word)
         (kn, bp, am, da) = getExplicitMeaning(word, frequency[word],
-                                              total, keynessFuzziness)
+                                              total, keynessFuzziness,
+                                              remote=remote)
         keyness[word] = kn
         base_powers[word] = bp
         amplifiers[word] = am
@@ -106,7 +113,7 @@ def assignKeyness(context, frequency, total, normal=False,
     return keyness, base_powers, amplifiers, dampers
 
 
-def getExplicitMeaning(word, frequency, total, fuzzification):
+def getExplicitMeaning(word, frequency, total, fuzzification, remote=False):
     '''
     IN: word, str (to look up definitions)
     IN: frequency, float, # of occurences
@@ -116,7 +123,7 @@ def getExplicitMeaning(word, frequency, total, fuzzification):
     # TODO: base power should pos tag based on statement, not just word
     base_power = checkBasePower(posTag([word]))
     amplifier = frequency
-    damper = checkSenses(word)
+    damper = checkSenses(word, remote=remote)
 
     return fuzzification(base_power, amplifier, damper, total), \
         base_power, amplifier, damper
