@@ -52,7 +52,8 @@ def getFuzzyMeaning(word_groups, context, frequency, total,
     '''
     # TODO: optimize sanitation
     (keyness, base, amplify, damp) = assignKeyness(context, frequency,
-                                                   total, normal=False)
+                                                   total, normal=False,
+                                                   remote=remote)
     keyness_confidence = keynessConfidence(keyness, base, amplify, damp)
 
     real_words = {}
