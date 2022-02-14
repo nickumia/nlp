@@ -2,3 +2,4 @@
 nltk
 numpy
 contractions @ git+https://github.com/nickumia/contractions@main#egg=contractions
+websearchdict @ git+https://github.com/nickumia/web-search-dictionary.git@main#egg=websearchdict
