@@ -20,7 +20,8 @@ class LocalDictionary():
         IN: filename, str: File to store dictionary in
         '''
         with open(filename, 'wb') as outar:
-            pickle.dump(self.dictionary, outar, protocol=pickle.HIGHEST_PROTOCOL)
+            pickle.dump(self.dictionary, outar,
+                        protocol=pickle.HIGHEST_PROTOCOL)
 
     def prepopulate(self, words):
         '''

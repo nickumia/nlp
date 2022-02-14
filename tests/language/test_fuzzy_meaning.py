@@ -5,8 +5,6 @@ from nlp.processing.corpus.representativeness import occurences, totalCount
 import nlp.processing.corpus.identity as npci
 import nlp.processing.appraisal.dictionary as npad
 
-import pickle
-
 
 npci.ABBREVIATION_LENGTH = 2
 
@@ -18,7 +16,7 @@ def test_basictext_init():
                                                text.contexts,
                                                occurences(text.words),
                                                totalCount(text.words))
-    # This is subject to change when definition lookups are enabled
+    # This is the test case where there is no knowledge of word definitions
     assert meanings['exam'][0][0][0] == 0.2
     assert meanings['exam'][0][0][1] == 0.6000000000000001
     assert meanings['exam'][0][0][2] == 0.6000000000000001
@@ -50,11 +48,11 @@ def test_basictext_init_lookup():
                                                occurences(text.words),
                                                totalCount(text.words),
                                                remote=True)
-    # This is subject to change when definition lookups are enabled
-    assert meanings['exam'][0][0][0] == 3.2
-    assert meanings['exam'][0][0][1] == 3.5999999999999996
-    assert meanings['exam'][0][0][2] == 7.800000000000001
-    assert meanings['exam'][0][0][3] == 15.600000000000001
+    # These vary based on definition lookup
+    assert (3.2 - meanings['exam'][0][0][0]) < 1
+    assert (3.5999999999999996 - meanings['exam'][0][0][1]) < 1
+    assert (7.800000000000001 - meanings['exam'][0][0][2]) < 1
+    assert (15.60000000000000 - meanings['exam'][0][0][3]) < 1
     assert meanings['exam'][0][1] == ['a', 'exam', 'simple', 'very']
     assert meanings['exam'][1] == [('A very very simple exam.',
                                     'sentences_only', 0)]
