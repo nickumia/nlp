@@ -1,27 +1,14 @@
 # This is the integration with web-search-dictionary
 
-import pickle
 import websearchdict
 
+import nlp.processing.storage as nps
 
-class LocalDictionary():
+
+class LocalDictionary(nps.Storage):
     def __init__(self):
+        super().__init__()
         self.dictionary = {}
-
-    def restore(self, filename):
-        '''
-        IN: filename, str: File that has stored state of dictionary
-        '''
-        with open(filename, 'rb') as intar:
-            self.dictionary = pickle.load(intar)
-
-    def backup(self, filename):
-        '''
-        IN: filename, str: File to store dictionary in
-        '''
-        with open(filename, 'wb') as outar:
-            pickle.dump(self.dictionary, outar,
-                        protocol=pickle.HIGHEST_PROTOCOL)
 
     def prepopulate(self, words):
         '''
@@ -30,6 +17,14 @@ class LocalDictionary():
         for word in words:
             if word not in self.dictionary:
                 self.dictionary[word] = websearchdict.lookup(word)
+
+    def backup(self, filename):
+        self.save = self.dictionary
+        super().backup(filename)
+
+    def restore(self, filename):
+        super().restore(filename)
+        self.dictionary = self.save
 
     def lookup(self, word):
         '''
