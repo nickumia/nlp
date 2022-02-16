@@ -8,11 +8,21 @@ from nlp.language import constants
 import nltk
 
 
-def posTag(statement, word=None):
+def posTag(statement, word=None, whole=False):
     '''
     IN: statement, list(str), a list of words within context
-    OUT: pos_tags, list(tuple(str)), a list of words paired with their pos
+    IN: word, str, if statement is more than one word, return the POS for
+                   this word
+    IN: whole, bool, whether all of the word's POS tags shoud be returned
+
+    OUT: if whole:
+        pos_tags, list(tuple(str)), a list of words paired with their pos
+    OUT: if not whole:
+        pos_tags, str, the tag for the provided word
     '''
+
+    if whole:
+        return nltk.pos_tag(statement)
     tags = nltk.pos_tag(statement)
     if word:
         for pair in tags:

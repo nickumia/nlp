@@ -41,16 +41,21 @@ WRB = 'WRB'
 BASE_POWER = {}
 
 # Function Words
-BASE_POWER.update(dict.fromkeys([DT, EX, IN, IS, RP, TO], 1))
+FUNCTION_WORDS = [DT, EX, IN, IS, RP, TO]
+BASE_POWER.update(dict.fromkeys(FUNCTION_WORDS, 1))
 
 # Content Words
-BASE_POWER.update(dict.fromkeys([POS, PRP, PRPs], 2.2))
-BASE_POWER.update(dict.fromkeys(
-    [CD, JJ, NN, NNS, RB, VB, VBD, VBG, VBN, VBP, VBZ], 3))
-BASE_POWER.update(dict.fromkeys([CC, JJR, JJS, MD, PDT, RBR, RBS], 3.8))
+CONTENT_WORDS_1 = [POS, PRP, PRPs]
+CONTENT_WORDS_2 = [CD, JJ, NN, NNS, RB, VB, VBD, VBG, VBN, VBP, VBZ]
+CONTENT_WORDS_3 = [CC, JJR, JJS, MD, PDT, RBR, RBS]
+CONTENT_WORDS = CONTENT_WORDS_1 + CONTENT_WORDS_2 + CONTENT_WORDS_3
+BASE_POWER.update(dict.fromkeys(CONTENT_WORDS_1, 2.2))
+BASE_POWER.update(dict.fromkeys(CONTENT_WORDS_2, 3))
+BASE_POWER.update(dict.fromkeys(CONTENT_WORDS_3, 3.8))
 
 # Unique Words
-BASE_POWER.update(dict.fromkeys([FW, NNP, NNPS, UH, WDT, WP, WPs, WRB], 5))
+UNIQUE_WORDS = [FW, NNP, NNPS, UH, WDT, WP, WPs, WRB]
+BASE_POWER.update(dict.fromkeys(UNIQUE_WORDS, 5))
 
 
 # Fuzzy params

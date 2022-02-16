@@ -20,4 +20,3 @@ class Storage():
         with open(filename, 'wb') as outar:
             pickle.dump(self.save, outar,
                         protocol=pickle.HIGHEST_PROTOCOL)
-
