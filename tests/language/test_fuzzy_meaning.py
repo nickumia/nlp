@@ -49,7 +49,7 @@ def test_basictext_init_lookup():
                                                totalCount(text.words),
                                                remote=True)
     # These vary based on definition lookup
-    assert (3.2 - meanings['exam'][0][0][0]) < 1
+    assert (3.2 - meanings['exam'][0][0][0]) < 1.5
     assert (3.5999999999999996 - meanings['exam'][0][0][1]) < 1
     assert (7.800000000000001 - meanings['exam'][0][0][2]) < 1
     assert (15.60000000000000 - meanings['exam'][0][0][3]) < 1.5
