@@ -18,7 +18,7 @@ class LocalDictionary(nps.Storage):
         IN: words, list: A list of words to lookup
         '''
         total = len(words)
-        for i,word in enumerate(words):
+        for i, word in enumerate(words):
             if word not in self.dictionary:
                 npit.progress('Looking up [%d/%d]: %s' % (i, total, word))
                 time.sleep(self.lookup_delay)
@@ -45,14 +45,14 @@ class LocalDictionary(nps.Storage):
         try:
             result = self.dictionary[word]
             if time.time() - result['timestamp'] > max_age:
-                time.sleep(lookup_delay)
+                time.sleep(self.lookup_delay)
                 self.dictionary[word] = {
                     'entry': websearchdict.lookup(word),
                     'timestamp': time.time()
                 }
             return self.dictionary[word]
         except KeyError:
-            time.sleep(lookup_delay)
+            time.sleep(self.lookup_delay)
             self.dictionary[word] = {
                 'entry': websearchdict.lookup(word),
                 'timestamp': time.time()
@@ -65,10 +65,10 @@ class LocalDictionary(nps.Storage):
         OUT: int: the number of known senses of word
         '''
         try:
-            return len(self.dictionary[word].getDefinitions())
+            return len(self.dictionary[word]['entry'].getDefinitions())
         except KeyError:
             self.lookup(word)
-            return len(self.dictionary[word].getDefinitions())
+            return len(self.dictionary[word]['entry'].getDefinitions())
 
 
 DICTIONARY = LocalDictionary()
