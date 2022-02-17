@@ -12,6 +12,12 @@ class WordMap(nps.Storage):
     def __init__(self, focal):
         '''
         focal, list: list of words as focal point
+        map, dict(priority, words): priority of word associations
+        ranking, dict(words, ranking): the order in which the word showed
+                                        up in the definition (i.e. the first
+                                        definition, the second definition...)
+        singular, dict(word, weight): the combination of priority and rank to
+                                        form a weight of association
         '''
         super().__init__()
         self.focal = focal
