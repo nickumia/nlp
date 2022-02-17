@@ -50,9 +50,8 @@ def test_wordmap_weights():
     A.backup('wordmap.dump')
     npad.DICTIONARY.backup('dictionary.dump')
 
-    pam = A.getMap()
+    # pam = A.getMap()
     A.collapse()
-    # print(pam)
 
     # TODO: add assertions
 
