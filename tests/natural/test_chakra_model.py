@@ -24,6 +24,17 @@ def test_model_infuse():
     assert nnc.infuse(20, 80, category=nnc.EXTERNAL) == 8
 
 
+def test_model_reset():
+    assert nnc.infuse(20, 80) == 16
+    assert nnc.infuse(20, 80, category=nnc.EXTERNAL) == 8
+
+    a = nnc.make_body()
+    a.disturb(nnc.EARTH, 80)
+    assert a.CHAKRAS[a.P_CHAKRA][nnc.EARTH] == -80
+    a.reset()
+    assert a.CHAKRAS[a.P_CHAKRA][nnc.EARTH] == 0
+
+
 def test_model_disturb():
     a = nnc.make_body()
     a.disturb(nnc.EARTH, 80)

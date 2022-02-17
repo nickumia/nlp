@@ -69,13 +69,17 @@ class Chakras():
         return 0
 
     def reset(self):
-        self.P_CHAKRA = dict.fromkeys(CHAKRA_SPEC, 0)
-        self.N_CHAKRA = dict.fromkeys(CHAKRA_SPEC, 0)
-        self.Q_CHAKRA = dict.fromkeys(CHAKRA_SPEC, 0)
+        self.CHAKRAS = {
+            self.P_CHAKRA: dict.fromkeys(CHAKRA_SPEC, 0),
+            self.N_CHAKRA: dict.fromkeys(CHAKRA_SPEC, 0),
+            self.Q_CHAKRA: dict.fromkeys(CHAKRA_SPEC, 0)
+        }
 
-        self.P_STATE = dict.fromkeys(CHAKRA_ONLY, True)
-        self.N_STATE = dict.fromkeys(CHAKRA_ONLY, True)
-        self.Q_STATE = dict.fromkeys(CHAKRA_ONLY, True)
+        self.STATES = {
+            self.P_CHAKRA: dict.fromkeys(CHAKRA_ONLY, True),
+            self.N_CHAKRA: dict.fromkeys(CHAKRA_ONLY, True),
+            self.Q_CHAKRA: dict.fromkeys(CHAKRA_ONLY, True)
+        }
 
         self.CHAKRA_INFLUENCE = dict.fromkeys(CHAKRA_ONLY, [])
         self.CHAKRA_INFLUENCE[INVERSE_CHAKRA] = []
