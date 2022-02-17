@@ -20,7 +20,7 @@ class WordMap(nps.Storage):
         for layer in range(layers):
             all_words = []
             for word in self.map[layer]:
-                entry = npad.DICTIONARY.lookup(word)
+                entry = npad.DICTIONARY.lookup(word)['entry']
                 for key, sense in entry.getDefinitions().items():
                     temp_words = npci.group(sense['definition'],
                                             specific=npci.char_word)
