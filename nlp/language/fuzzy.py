@@ -45,10 +45,7 @@ def checkSenses(word, remote=False):
     OUT: int, # of sense/definitions
     '''
     if remote:
-        try:
-            return npad.DICTIONARY.numberOfSenses(word)
-        except BaseException:
-            pass
+        return npad.DICTIONARY.numberOfSenses(word)
     return 0
 
 
