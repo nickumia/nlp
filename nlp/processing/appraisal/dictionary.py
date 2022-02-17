@@ -1,22 +1,28 @@
 # This is the integration with web-search-dictionary
 
+import time
 import websearchdict
 
 import nlp.processing.storage as nps
+import nlp.processing.interaction.text as npit
 
 
 class LocalDictionary(nps.Storage):
-    def __init__(self):
+    def __init__(self, delay=0.5):
         super().__init__()
         self.dictionary = {}
+        self.lookup_delay = delay
 
-    def prepopulate(self, words):
+    def prepopulate(self, words, max_age=2678400):
         '''
         IN: words, list: A list of words to lookup
         '''
-        for word in words:
+        total = len(words)
+        for i,word in enumerate(words):
             if word not in self.dictionary:
-                self.dictionary[word] = websearchdict.lookup(word)
+                npit.progress('Looking up [%d/%d]: %s' % (i, total, word))
+                time.sleep(self.lookup_delay)
+                self.lookup(word, max_age=max_age)
 
     def backup(self, filename):
         self.save = self.dictionary
@@ -26,15 +32,31 @@ class LocalDictionary(nps.Storage):
         super().restore(filename)
         self.dictionary = self.save
 
-    def lookup(self, word):
+    def lookup(self, word, max_age=2678400):
         '''
         IN: word, str: Word to lookup
         OUT: dict{pos, definition(str)}
+
+        If word definition is too old, lookup again
+            31 days: 2678400s
+            90 days: 7776000s
+            180 days: 15552000s
         '''
         try:
+            result = self.dictionary[word]
+            if time.time() - result['timestamp'] > max_age:
+                time.sleep(lookup_delay)
+                self.dictionary[word] = {
+                    'entry': websearchdict.lookup(word),
+                    'timestamp': time.time()
+                }
             return self.dictionary[word]
         except KeyError:
-            self.dictionary[word] = websearchdict.lookup(word)
+            time.sleep(lookup_delay)
+            self.dictionary[word] = {
+                'entry': websearchdict.lookup(word),
+                'timestamp': time.time()
+            }
             return self.dictionary[word]
 
     def numberOfSenses(self, word):
