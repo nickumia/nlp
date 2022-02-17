@@ -31,10 +31,11 @@ def test_wordmap_basic():
     A.backup('wordmap.dump')
     npad.DICTIONARY.backup('dictionary.dump')
 
-    # print(A.getMap())
-    assert len(A[0]) == 1
-    assert len(A[0]) < len(A[1])
-    assert len(A[1]) < len(A[2])
+    pam = A.getMap()
+    # print(pam)
+    assert len(pam[0]) == 1
+    assert len(pam[0]) < len(pam[1])
+    assert len(pam[1]) < len(pam[2])
 
 
 if __name__ == '__main__':
