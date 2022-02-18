@@ -57,6 +57,8 @@ class WordMap(nps.Storage):
     def collapse(self):
         '''
         Calculate a weight associated with each word given the map
+        OUT: singular, dict{word, value}: weight of each word
+                                            association
         '''
         for priority in self.map:
             if priority == 0:
@@ -74,6 +76,7 @@ class WordMap(nps.Storage):
                                 self.map[priority][word]
         # print(self.singular['thing'])
         # print(self.ranking)
+        return self.singular
 
     def backup(self, filename):
         self.save = self.map
