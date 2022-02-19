@@ -91,3 +91,41 @@ class WordMap(nps.Storage):
 
     def getMap(self):
         return self.map
+
+
+def combineMaps(A, B):
+    ''' Combine focals '''
+    new_focal = A.focal + B.focal
+    C = WordMap(new_focal)
+
+    ''' Combine maps '''
+    big_map = A.map if len(A.map.keys()) > len(B.map.keys()) else B.map
+    new_map = A.map if big_map == B.map else B.map
+    for priority in big_map:
+        if priority == 0:
+            new_map[priority] += big_map[priority]
+        elif priority not in new_map.keys():
+            new_map[priority] = big_map[priority]
+        else:
+            new_map[priority].update(big_map[priority])
+    C.map = new_map
+
+    ''' Combine rankings '''
+    new_ranking = A.ranking
+    for word in B.ranking:
+        if word not in new_ranking:
+            new_ranking[word] = B.ranking[word]
+        else:
+            new_ranking[word] += B.ranking[word]
+    C.ranking = new_ranking
+
+    ''' Combine singulars '''
+    new_singular = A.singular
+    for word in B.singular:
+        if word not in new_singular:
+            new_singular[word] = B.singular[word]
+        else:
+            new_singular[word] += B.singular[word]
+    C.singular = new_singular
+
+    return C

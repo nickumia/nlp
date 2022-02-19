@@ -3,57 +3,71 @@ import nlp.processing.appraisal.dictionary as npad
 import nlp.language.focals as nlfo
 
 
-def test_wordmap_init():
-    original = ['test']
-    temp = ['test', 'what']
-    A = nlfo.WordMap(original)
-    save_file = 'wordmap.dump'
+class TestWordMap():
+    @classmethod
+    def setup_class(cls):
+        try:
+            npad.DICTIONARY.restore('dictionary.dump')
+        except FileNotFoundError:
+            # npad.DICTIONARY.prepopulate(text.words)
+            pass
 
-    assert A.getMap() == {0: original}
+    def test_wordmap_init(self):
+        original = ['test']
+        temp = ['test', 'what']
+        A = nlfo.WordMap(original)
+        save_file = 'wordmap.dump'
 
-    A.backup(save_file)
-    A.map = {0: temp}
-    assert A.getMap() == {0: temp}
+        assert A.getMap() == {0: original}
 
-    A.restore(save_file)
-    assert A.getMap() == {0: original}
+        A.backup(save_file)
+        A.map = {0: temp}
+        assert A.getMap() == {0: temp}
 
-
-def test_wordmap_basic():
-    try:
-        npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
-        # npad.DICTIONARY.prepopulate(text.words)
-        pass
-
-    A = nlfo.WordMap(['go'])
-    A.generateByDefinitions(layers=2)
-    A.backup('wordmap.dump')
-    npad.DICTIONARY.backup('dictionary.dump')
-
-    pam = A.getMap()
-    # print(pam)
-    assert len(pam[0]) == 1
-    assert len(pam[0]) < len(pam[1])
-    assert len(pam[1]) < len(pam[2])
+        A.restore(save_file)
+        assert A.getMap() == {0: original}
 
 
-def test_wordmap_weights():
-    try:
-        npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
-        # npad.DICTIONARY.prepopulate(text.words)
-        pass
+    def test_wordmap_basic(self):
+        A = nlfo.WordMap(['go'])
+        A.generateByDefinitions(layers=2)
+        A.backup('wordmap.dump')
+        npad.DICTIONARY.backup('dictionary.dump')
 
-    A = nlfo.WordMap(['go'])
-    A.generateByDefinitions(layers=2)
-    A.backup('wordmap.dump')
-    npad.DICTIONARY.backup('dictionary.dump')
+        pam = A.getMap()
+        # print(pam)
+        assert len(pam[0]) == 1
+        assert len(pam[0]) < len(pam[1])
+        assert len(pam[1]) < len(pam[2])
 
-    # pam = A.getMap()
-    A.collapse()
 
-    # TODO: add assertions
+    def test_wordmap_weights(self):
+        A = nlfo.WordMap(['go'])
+        A.generateByDefinitions(layers=2)
+        A.backup('wordmap.dump')
+        npad.DICTIONARY.backup('dictionary.dump')
+
+        # pam = A.getMap()
+        A.collapse()
+
+        # TODO: add assertions
+
+
+    def test_wordmap_combine(self):
+        A = nlfo.WordMap(['go'])
+        B = nlfo.WordMap(['back'])
+        A.generateByDefinitions(layers=2)
+        B.generateByDefinitions(layers=2)
+        npad.DICTIONARY.backup('dictionary.dump')
+        A.collapse()
+        B.collapse()
+
+        C = nlfo.combineMaps(A, B)
+        assert C.map[0] == ['go', 'back']
+        assert list(A.ranking.keys())[-1] in C.ranking.keys()
+        assert list(B.ranking.keys())[-1] in C.ranking.keys()
+        assert list(A.singular.keys())[-1] in C.singular.keys()
+        assert list(B.singular.keys())[-1] in C.singular.keys()
 
 
 if __name__ == '__main__':
