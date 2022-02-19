@@ -45,5 +45,5 @@ def test_buttons_bias_similar():
 
     model = nnb.Buttons(brain=left, pinky=right)
     c, i = model.bias()
-    assert 0.3 < c < 0.5
-    assert 0.3 < i < 0.5
+    assert 0.4 < c < 0.6
+    assert 0.4 < i < 0.6

@@ -24,4 +24,4 @@ def test_dictionary_lookup():
 
 def test_dictionary_numberOfSenses_wo_prior_lookup():
     npad.DICTIONARY = npad.LocalDictionary()
-    assert 4 <= npad.DICTIONARY.numberOfSenses('test') <= 8
+    assert 8 <= npad.DICTIONARY.numberOfSenses('test') <= 12
