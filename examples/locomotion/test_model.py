@@ -27,4 +27,3 @@ if __name__ == '__main__':
             results[key_word] = evaluate(MODEL[key_word], flattened)
             print("I'm confident you meant __%s__ by %f" % (key_word,
                                                             results[key_word]))
-
