@@ -34,13 +34,6 @@ def test_basictext_init_lookup():
         npad.DICTIONARY.restore('dictionary.dump')
     except FileNotFoundError:
         npad.DICTIONARY.prepopulate(text.words)
-    # print(npad.DICTIONARY.lookup('a').getDefinitions())
-    # print("_-_-_-_-_")
-    # print(npad.DICTIONARY.lookup('very').getDefinitions())
-    # print("_-_-_-_-_")
-    # print(npad.DICTIONARY.lookup('simple').getDefinitions())
-    # print("_-_-_-_-_")
-    # print(npad.DICTIONARY.lookup('exam').getDefinitions())
     npad.DICTIONARY.backup('dictionary.dump')
 
     meanings, confidence = nlf.getFuzzyMeaning(text.groups,
