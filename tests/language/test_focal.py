@@ -64,10 +64,14 @@ class TestWordMap():
 
         C = nlfo.combineMaps(A, B)
         assert C.map[0] == ['go', 'back']
-        assert list(A.ranking.keys())[-1] in C.ranking.keys()
-        assert list(B.ranking.keys())[-1] in C.ranking.keys()
-        assert list(A.singular.keys())[-1] in C.singular.keys()
-        assert list(B.singular.keys())[-1] in C.singular.keys()
+        for key in A.ranking:
+            assert key in C.ranking
+        for key in B.ranking:
+            assert key in C.ranking
+        for key in A.singular:
+            assert key in C.singular
+        for key in B.singular:
+            assert key in C.singular
 
 
 if __name__ == '__main__':
