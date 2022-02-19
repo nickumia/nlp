@@ -17,8 +17,8 @@ class Buttons():
         self.pinky = external
 
     def intersect(self):
-        brain_k = set(self.brain.singular.keys())
-        pinky_k = set(self.pinky.singular.keys())
+        brain_k = set(self.brain.ranking.keys())
+        pinky_k = set(self.pinky.ranking.keys())
         self.brain_n = len(brain_k)
         self.pinky_n = len(pinky_k)
 
@@ -31,12 +31,6 @@ class Buttons():
                             computations
         OUT: total, num: percent of perfect match (total & subset)
         '''
-        if compute:
-            self.brain.generateByDefinitions()
-            self.brain.collapse()
-            self.pinky.generateByDefinitions()
-            self.pinky.collapse()
-
         total = 0
         subset = 0
         # reference = sum(self.brain.singular.values())
