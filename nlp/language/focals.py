@@ -38,6 +38,7 @@ class WordMap(nps.Storage):
             for word in self.map[layer]:
                 entry = npad.DICTIONARY.lookup(word)['entry']
                 for key, sense in entry.getDefinitions().items():
+                    # print(word, sense['definition'])
                     temp_words = npci.group(sense['definition'],
                                             specific=npci.char_word)
                     pos = nlf.posTag(temp_words, whole=True)
@@ -69,11 +70,13 @@ class WordMap(nps.Storage):
                     rank = sum(self.ranking[word]) / \
                             float(len(self.ranking[word]))
                     if word not in self.singular:
-                        self.singular[word] = (1 / (rank * priority)) * \
-                                self.map[priority][word]
+                        self.singular[word] = \
+                            (1 / (rank * rank * priority * priority)) * \
+                            self.map[priority][word]
                     else:
-                        self.singular[word] += (1 / (rank * priority)) * \
-                                self.map[priority][word]
+                        self.singular[word] += \
+                            (1 / (rank * rank * priority * priority)) * \
+                            self.map[priority][word]
         # print(self.singular['thing'])
         # print(self.ranking)
         return self.singular
