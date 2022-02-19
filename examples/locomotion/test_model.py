@@ -28,4 +28,3 @@ if __name__ == '__main__':
             print("I'm confident you meant __%s__ by %f" % (key_word,
                                                             results[key_word]))
 
-

@@ -27,7 +27,6 @@ class TestWordMap():
         A.restore(save_file)
         assert A.getMap() == {0: original}
 
-
     def test_wordmap_basic(self):
         A = nlfo.WordMap(['go'])
         A.generateByDefinitions(layers=2)
@@ -40,7 +39,6 @@ class TestWordMap():
         assert len(pam[0]) < len(pam[1])
         assert len(pam[1]) < len(pam[2])
 
-
     def test_wordmap_weights(self):
         A = nlfo.WordMap(['go'])
         A.generateByDefinitions(layers=2)
@@ -51,7 +49,6 @@ class TestWordMap():
         A.collapse()
 
         # TODO: add assertions
-
 
     def test_wordmap_combine(self):
         A = nlfo.WordMap(['go'])
@@ -79,10 +76,11 @@ if __name__ == '__main__':
     print('2 - test_wordmap_basic')
     print('3 - test_wordmap_weights')
     a = input('Which test to run?')
+    z = TestWordMap()
 
     if a == '1':
-        test_wordmap_init()
+        z.test_wordmap_init()
     if a == '2':
-        test_wordmap_basic()
+        z.test_wordmap_basic()
     if a == '3':
-        test_wordmap_weights()
+        z.test_wordmap_weights()

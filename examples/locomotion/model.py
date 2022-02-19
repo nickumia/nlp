@@ -33,6 +33,7 @@ for key in MODEL.keys():
     npad.DICTIONARY.backup(SAVED_DICTIONARY)
     MODEL[key].collapse()
 
+
 def evaluate(known, unknown):
     tester = nnb.Buttons(brain=known, pinky=unknown)
     tester.intersect()
