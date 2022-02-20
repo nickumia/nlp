@@ -7,9 +7,10 @@ import nlp.processing.storage as nps
 import nlp.processing.interaction.text as npit
 
 
-class LocalDictionary(nps.Storage):
+class LocalDictionary(nps.S3Storage):
     def __init__(self, delay=0.5):
-        super().__init__()
+        # super().__init__()
+        super().__init__('nlpdev', 'nlpdev')
         self.dictionary = {}
         self.lookup_delay = delay
 

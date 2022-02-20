@@ -1,4 +1,6 @@
 
+import botocore
+
 from nlp.processing.inputs import BasicText
 import nlp.language.fuzzy as nlf
 from nlp.processing.corpus.representativeness import occurences, totalCount
@@ -32,7 +34,7 @@ def test_basictext_init_lookup():
     text = BasicText('A very very simple exam.')
     try:
         npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
+    except (FileNotFoundError, botocore.exceptions.ClientError):
         npad.DICTIONARY.prepopulate(text.words)
     npad.DICTIONARY.backup('dictionary.dump')
 

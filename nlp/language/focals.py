@@ -8,7 +8,7 @@ import nlp.language.fuzzy as nlf
 import nlp.language.constants as nlc
 
 
-class WordMap(nps.Storage):
+class WordMap(nps.S3Storage):
     def __init__(self, focal):
         '''
         focal, list: list of words as focal point
@@ -19,7 +19,8 @@ class WordMap(nps.Storage):
         singular, dict(word, weight): the combination of priority and rank to
                                         form a weight of association
         '''
-        super().__init__()
+        # super().__init__()
+        super().__init__('nlpdev', 'nlpdev')
         self.focal = focal
         self.map = {0: focal}
         self.ranking = {}

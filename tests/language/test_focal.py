@@ -1,4 +1,6 @@
 
+import botocore
+
 import nlp.processing.appraisal.dictionary as npad
 import nlp.language.focals as nlfo
 
@@ -8,7 +10,7 @@ class TestWordMap():
     def setup_class(cls):
         try:
             npad.DICTIONARY.restore('dictionary.dump')
-        except FileNotFoundError:
+        except (FileNotFoundError, botocore.exceptions.ClientError):
             # npad.DICTIONARY.prepopulate(text.words)
             pass
 

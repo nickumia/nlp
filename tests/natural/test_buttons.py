@@ -1,4 +1,6 @@
 
+import botocore
+
 import nlp.processing.appraisal.dictionary as npad
 import nlp.language.focals as nlfo
 import nlp.natural.buttons as nnb
@@ -8,7 +10,7 @@ def test_buttons_bias_different():
     ''' Test that internal/external bias computation words '''
     try:
         npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
+    except (FileNotFoundError, botocore.exceptions.ClientError):
         pass
 
     left = nlfo.WordMap(['left'])
@@ -32,7 +34,7 @@ def test_buttons_match_different():
     ''' Test that internal/external bias computation words '''
     try:
         npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
+    except (FileNotFoundError, botocore.exceptions.ClientError):
         pass
 
     left = nlfo.WordMap(['left'])
@@ -54,7 +56,7 @@ def test_buttons_bias_similar():
     ''' Test that internal/external bias computation words '''
     try:
         npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
+    except (FileNotFoundError, botocore.exceptions.ClientError):
         pass
 
     left = nlfo.WordMap(['operate'])
@@ -77,7 +79,7 @@ def test_buttons_match_similar():
     ''' Test that internal/external bias computation words '''
     try:
         npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
+    except (FileNotFoundError, botocore.exceptions.ClientError):
         pass
 
     left = nlfo.WordMap(['operate'])

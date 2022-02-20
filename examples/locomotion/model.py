@@ -1,4 +1,6 @@
 
+import botocore
+
 import nlp.processing.appraisal.dictionary as npad
 import nlp.language.focals as nlfo
 import nlp.natural.buttons as nnb
@@ -15,7 +17,7 @@ SAVED_DICTIONARY = 'dictionary.dump'
 
 try:
     npad.DICTIONARY.restore(SAVED_DICTIONARY)
-except FileNotFoundError:
+except (FileNotFoundError, botocore.exceptions.ClientError):
     starting_words = move + stop + left + up + down + right
     npad.DICTIONARY.prepopulate(starting_words)
 

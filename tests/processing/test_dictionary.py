@@ -25,3 +25,7 @@ def test_dictionary_lookup():
 def test_dictionary_numberOfSenses_wo_prior_lookup():
     npad.DICTIONARY = npad.LocalDictionary()
     assert 8 <= npad.DICTIONARY.numberOfSenses('test') <= 12
+
+# npad.DICTIONARY.restore('dictionary.dump')
+# print(len(npad.DICTIONARY.dictionary))
+# assert False
