@@ -19,9 +19,19 @@ jobs:
   test:
     name: Pytest
     runs-on: ubuntu-latest
+    env:
+      aws_access_KI: ${{ secrets.aws_access_key_id }}
+      aws_access_SK: ${{ secrets.aws_secret_access_key }}
+
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: Setup AWS
+        cat << AWSSDK > $HOME/.aws/credentials
+          [nlpdev]
+          aws_access_key_id = $aws_access_KI
+          aws_secret_access_key = $aws_access_SK
+        AWSSDK
       - name: build
         run: make build
       - name: test
