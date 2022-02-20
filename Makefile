@@ -21,7 +21,10 @@ test:
 
 export NLTK_SETUP_TEST
 test-cov:
-	docker run --rm -v "$(shell pwd)":/pac nlp:dev bash -c "$$NLTK_SETUP_TEST"
+	docker run --rm \
+		-v "$(shell pwd)":/pac \
+		-v "$(shell echo ${HOME})"/.aws:/root/.aws \
+		nlp:dev bash -c "$$NLTK_SETUP_TEST"
 
 robot:
 	docker run -ti --rm \
