@@ -30,4 +30,3 @@ if __name__ == '__main__':
                                                             results[key_word]))
         if npad.DICTIONARY.dictionary != original_dictionary:
             npad.DICTIONARY.backup(SAVED_DICTIONARY)
-    MODEL[key].collapse()
