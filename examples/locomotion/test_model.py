@@ -23,7 +23,11 @@ if __name__ == '__main__':
                 flattened = new
 
         results = {}
+        original_dictionary = npad.DICTIONARY.dictionary
         for key_word in MODEL.keys():
             results[key_word] = evaluate(MODEL[key_word], flattened)
             print("I'm confident you meant __%s__ by %f" % (key_word,
                                                             results[key_word]))
+        if npad.DICTIONARY.dictionary != original_dictionary:
+            npad.DICTIONARY.backup(SAVED_DICTIONARY)
+    MODEL[key].collapse()

@@ -31,8 +31,10 @@ MODEL = {
 }
 
 for key in MODEL.keys():
+    original_dictionary = npad.DICTIONARY.dictionary
     MODEL[key].generateByDefinitions(layers=2)
-    npad.DICTIONARY.backup(SAVED_DICTIONARY)
+    if npad.DICTIONARY.dictionary != original_dictionary:
+        npad.DICTIONARY.backup(SAVED_DICTIONARY)
     MODEL[key].collapse()
 
 
