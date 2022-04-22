@@ -1,4 +1,6 @@
 
+import botocore
+
 from nlp.processing.inputs import BasicText
 import nlp.language.fuzzy as nlf
 from nlp.processing.corpus.representativeness import occurences, totalCount
@@ -32,15 +34,8 @@ def test_basictext_init_lookup():
     text = BasicText('A very very simple exam.')
     try:
         npad.DICTIONARY.restore('dictionary.dump')
-    except FileNotFoundError:
+    except (FileNotFoundError, botocore.exceptions.ClientError):
         npad.DICTIONARY.prepopulate(text.words)
-    # print(npad.DICTIONARY.lookup('a').getDefinitions())
-    # print("_-_-_-_-_")
-    # print(npad.DICTIONARY.lookup('very').getDefinitions())
-    # print("_-_-_-_-_")
-    # print(npad.DICTIONARY.lookup('simple').getDefinitions())
-    # print("_-_-_-_-_")
-    # print(npad.DICTIONARY.lookup('exam').getDefinitions())
     npad.DICTIONARY.backup('dictionary.dump')
 
     meanings, confidence = nlf.getFuzzyMeaning(text.groups,
@@ -49,12 +44,14 @@ def test_basictext_init_lookup():
                                                totalCount(text.words),
                                                remote=True)
     # These vary based on definition lookup
-    assert (3.2 - meanings['exam'][0][0][0]) < 1
-    assert (3.5999999999999996 - meanings['exam'][0][0][1]) < 1
-    assert (7.800000000000001 - meanings['exam'][0][0][2]) < 1
-    assert (15.60000000000000 - meanings['exam'][0][0][3]) < 1.5
+    # The values should be lower than w/o definitions because the
+    # definitions add uncertainty
+    assert meanings['exam'][0][0][0] > 0.2
+    assert meanings['exam'][0][0][1] > 0.6
+    assert meanings['exam'][0][0][2] > 0.6
+    assert meanings['exam'][0][0][3] > 2.4
     assert meanings['exam'][0][1] == ['a', 'exam', 'simple', 'very']
     assert meanings['exam'][1] == [('A very very simple exam.',
                                     'sentences_only', 0)]
-    assert int(confidence['exam']) == 76
-    assert int(confidence['very']) == 64
+    assert int(confidence['exam']) < 92
+    assert int(confidence['very']) < 96

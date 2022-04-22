@@ -56,12 +56,22 @@ def getWords(contexts):
     return words
 
 
-def group(body, sanitizer=(lambda x: x)):
+def group(body, sanitizer=(lambda x: x), specific=None):
     ''''
     IN: body: str, a single string representing the entire input
     OUT: group_map: dict(re.match), a dictionary of matches per group
     '''
     group_map = {}
+
+    if specific is not None:
+        result = []
+        matches = re.findall(specific, body, flags=re.I | re.M | re.U)
+        if matches != []:
+            if type(matches[0]) == tuple:
+                result = [sanitizer(i[0]) for i in matches]
+            else:
+                result = sanitizer(matches)
+        return result
 
     for i, party in enumerate(GROUP_SEQUENCES):
         matches = re.findall(party, body, flags=re.I | re.M | re.U)

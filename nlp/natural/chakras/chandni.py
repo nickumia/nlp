@@ -21,10 +21,6 @@ class Chandni():
         self.QCHAKRA = self.model.chakraDistribution(self.model.Q_CHAKRA)
 
     def train(self, meanings, confidence, particle):
-        # meanings, confidence = nlf.getFuzzyMeaning(self.text.groups,
-        #                                            self.text.contexts,
-        #                                            occurences(self.text.words),  # NOQA
-        #                                            totalCount(self.text.words))  # NOQA
         self.run(meanings, confidence, True)
         self.model.CHAKRA_TRAIN_HISTORY[particle] = (
             (self.model.CHAKRAS[self.model.P_CHAKRA][nncb.POWER_LEVEL] -

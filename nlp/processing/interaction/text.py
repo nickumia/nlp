@@ -1,4 +1,6 @@
 
+import sys
+
 
 def terminal_yes_no(question):
     '''
@@ -23,3 +25,9 @@ def load_plain_text(filename, encoding='utf8'):
 
     temp = " ".join(lines).replace('\n', '')
     return temp
+
+
+def progress(string):
+    sys.stdout.write('\b'*80)
+    sys.stdout.write('%s\r' % string)
+    sys.stdout.flush()

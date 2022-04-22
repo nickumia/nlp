@@ -20,5 +20,6 @@ def test_chandni_basic(monkeypatch):
                                                B.contexts,
                                                occurences(B.words),
                                                totalCount(B.words))
+    print(meanings)
     A.train(meanings, confidence, "test 1")
     assert A.match == 1

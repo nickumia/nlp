@@ -1,45 +1,63 @@
 # This is the integration with web-search-dictionary
 
-import pickle
+import time
 import websearchdict
 
+import nlp.processing.storage as nps
+import nlp.processing.interaction.text as npit
 
-class LocalDictionary():
-    def __init__(self):
+
+class LocalDictionary(nps.S3Storage):
+    def __init__(self, delay=0.5):
+        # super().__init__()
+        super().__init__('nlpdev', 'nlpdev')
         self.dictionary = {}
+        self.lookup_delay = delay
 
-    def restore(self, filename):
-        '''
-        IN: filename, str: File that has stored state of dictionary
-        '''
-        with open(filename, 'rb') as intar:
-            self.dictionary = pickle.load(intar)
-
-    def backup(self, filename):
-        '''
-        IN: filename, str: File to store dictionary in
-        '''
-        with open(filename, 'wb') as outar:
-            pickle.dump(self.dictionary, outar,
-                        protocol=pickle.HIGHEST_PROTOCOL)
-
-    def prepopulate(self, words):
+    def prepopulate(self, words, max_age=2678400):
         '''
         IN: words, list: A list of words to lookup
         '''
-        for word in words:
+        total = len(words)
+        for i, word in enumerate(words):
             if word not in self.dictionary:
-                self.dictionary[word] = websearchdict.lookup(word)
+                npit.progress('Looking up [%d/%d]: %s' % (i, total, word))
+                time.sleep(self.lookup_delay)
+                self.lookup(word, max_age=max_age)
 
-    def lookup(self, word):
+    def backup(self, filename):
+        self.save = self.dictionary
+        super().backup(filename)
+
+    def restore(self, filename):
+        super().restore(filename)
+        self.dictionary = self.save
+
+    def lookup(self, word, max_age=2678400):
         '''
         IN: word, str: Word to lookup
         OUT: dict{pos, definition(str)}
+
+        If word definition is too old, lookup again
+            31 days: 2678400s
+            90 days: 7776000s
+            180 days: 15552000s
         '''
         try:
+            result = self.dictionary[word]
+            if time.time() - result['timestamp'] > max_age:
+                time.sleep(self.lookup_delay)
+                self.dictionary[word] = {
+                    'entry': websearchdict.lookup(word),
+                    'timestamp': time.time()
+                }
             return self.dictionary[word]
         except KeyError:
-            self.dictionary[word] = websearchdict.lookup(word)
+            time.sleep(self.lookup_delay)
+            self.dictionary[word] = {
+                'entry': websearchdict.lookup(word),
+                'timestamp': time.time()
+            }
             return self.dictionary[word]
 
     def numberOfSenses(self, word):
@@ -48,10 +66,10 @@ class LocalDictionary():
         OUT: int: the number of known senses of word
         '''
         try:
-            return len(self.dictionary[word].getDefinitions())
+            return len(self.dictionary[word]['entry'].getDefinitions())
         except KeyError:
             self.lookup(word)
-            return len(self.dictionary[word].getDefinitions())
+            return len(self.dictionary[word]['entry'].getDefinitions())
 
 
 DICTIONARY = LocalDictionary()

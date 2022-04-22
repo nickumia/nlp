@@ -132,3 +132,4 @@ dmypy.json
 *.swp
 dictionary.dump
 test.dump
+wordmap.dump
