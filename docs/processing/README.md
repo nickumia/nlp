@@ -48,3 +48,66 @@ graph LR;
     D-->F[CLA - Token Extraction];
     F-->G[Context Extration];
 ```
+
+### Dictionary
+
+```mermaid
+graph TD;
+    A[Dictionary]-->B[Backup/Restore];
+    A-->D[Lookup new words];
+    D-->A;
+    E[S3 Storage]-->B;
+    B-->E;
+    F[Local File Storage]-->B;
+    B-->F;
+```
+
+## Major Structures
+
+### Basic Text
+
+```python
+class BasicText():
+    self.text = str(full_text)
+    self.groups = dict(str(context_id): list(str(context)))
+    self.words = list(str)
+    self.contexts = dict(word: list((str(context), str(context_id), int(location)))
+```
+
+### Dictionary
+
+```python
+class LocalDictionary():
+    self.dictionary = dict(word: dict(entry: (definition from wsd), timestamp: (age)))
+    self.lookup_delay = int(time to delay between definition lookups)
+    def prepopulate():
+        # Given a list of words, do a mass lookup of all the words
+    def backup():
+        # Call Parent Storage class Backup function
+    def restore():
+        # Call Parent Storage class Restore function
+    def lookup():
+        # Look up word if not in dictionary or if current definition is too old
+    def numberOfSenses():
+        # Get the number of definitions for a word
+```
+
+### Storage
+
+```python
+class LocalStorage():
+    self.save = (variable to save)
+    def backup():
+        # Open File and pickle variable
+    def restore():
+        # Open File and unpickle variable
+
+class S3Storage():
+    self.bucket_name = (S3 bucket name)
+    self.session = (AWS S3 Connection)
+    self.save = (variable to save)
+    def backup():
+        # Pickle variable to fileobj and upload to S3
+    def restore():
+        # Download fileobj from S3 and unpickle variable
+```
