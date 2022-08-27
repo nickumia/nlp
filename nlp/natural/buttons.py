@@ -37,11 +37,13 @@ class Buttons():
         for word in self.overlap:
             brain_occur = len(self.brain.ranking[word])
             pinky_occur = len(self.pinky.ranking[word])
+            # print(brain_occur, pinky_occur)
             if brain_occur > pinky_occur:
                 weight = pinky_occur / brain_occur
             else:
                 weight = brain_occur / pinky_occur
-            total += abs(weight) * self.brain.singular[word]
+            # total += abs(weight) * self.brain.singular[word]
+            total += (brain_occur - pinky_occur) * self.brain.singular[word]
             subset += self.brain.singular[word]
 
         return total / subset  # , total / reference

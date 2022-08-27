@@ -63,10 +63,11 @@ class WordMap(nps.S3Storage):
         OUT: singular, dict{word, value}: weight of each word
                                             association
         '''
+        print(self.map)
         for priority in self.map:
             if priority == 0:
                 for word in self.map[priority]:
-                    self.singular[word] = 10
+                    self.singular[word] = len(self.map[priority+1])
             else:
                 for word in self.map[priority].keys():
                     rank = sum(self.ranking[word]) / \
