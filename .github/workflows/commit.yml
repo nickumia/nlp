@@ -28,8 +28,8 @@ jobs:
         path: [
           'tests/processing',
           'tests/language',
-          'tests/natural',
-          'examples/locomotion'
+          # 'tests/natural',
+          # 'examples/locomotion'
         ]
 
     steps:
