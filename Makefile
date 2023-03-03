@@ -1,8 +1,8 @@
 
-define NLTK_SETUP_TEST
+define NLTK_SETUP_TEST :=
 python -c "import nltk; nltk.download('punkt')"
 python -c "import nltk; nltk.download('averaged_perceptron_tagger')"
-coverage run --source=nlp,examples -m pytest --disable-pytest-warnings && coverage xml
+coverage run --source=nlp,examples -m pytest --disable-pytest-warnings $(FILE) && coverage xml
 endef
 
 

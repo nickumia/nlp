@@ -22,6 +22,15 @@ jobs:
     env:
       aws_access_KI: ${{ secrets.aws_access_key_id }}
       aws_access_SK: ${{ secrets.aws_secret_access_key }}
+    strategy:
+      fail-fast: false
+      matrix:
+        path: [
+          'tests/processing',
+          'tests/language',
+          'tests/natural',
+          'examples/locomotion'
+        ]
 
     steps:
       - name: checkout
@@ -38,7 +47,7 @@ jobs:
       - name: build
         run: make build
       - name: test
-        run: make test-cov
+        run: FILE=${{matrix.path}} make test-cov
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
