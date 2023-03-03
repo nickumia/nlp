@@ -1,4 +1,5 @@
 -e .
+boto3
 nltk
 numpy
 contractions @ git+https://github.com/nickumia/contractions@main#egg=contractions
