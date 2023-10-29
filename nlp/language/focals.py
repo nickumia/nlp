@@ -41,17 +41,22 @@ class WordMap(nps.S3Storage):
                 # print(layer, word, len(entry.getDefinitions()))
                 for key, sense in entry.getDefinitions().items():
                     # print(word, sense['definition'])
-                    temp_words = npci.group(sense['definition'],
-                                            specific=npci.char_word)
-                    pos = nlf.posTag(temp_words, whole=True)
-                    for item in pos:
-                        if item[1] in nlc.CONTENT_WORDS:
-                            filtered = npf.pre_sanitize(item[0])
-                            all_words += [filtered]
-                            if filtered in ranking:
-                                ranking[filtered] += [key + 1]
-                            else:
-                                ranking[filtered] = [key + 1]
+                    if sense['definition'] is not None:
+                        temp_words = npci.group(sense['definition'],
+                                                specific=npci.char_word)
+                        pos = nlf.posTag(temp_words, whole=True)
+                        for item in pos:
+                            if item[1] in nlc.CONTENT_WORDS:
+                                filtered = npf.pre_sanitize(item[0])
+                                all_words += [filtered]
+                                if filtered in ranking:
+                                    ranking[filtered] += [key + 1]
+                                else:
+                                    ranking[filtered] = [key + 1]
+                    else:
+                        # TODO: what should happen if the word cannot be
+                        # looked up?
+                        pass
 
             word_freq = npcr.occurences(all_words)
             self.map[layer+1] = word_freq
