@@ -64,7 +64,7 @@ class Chandni():
         x_attachment = []
         total = 0
 
-        union = (lambda x: x if type(x) != tuple else x[0]+x[1])
+        union = (lambda x: x if not isinstance(x, tuple) else x[0]+x[1])
         for particle, interaction in self.model.CHAKRA_TEST_HISTORY.items():
             total += union(interaction[0])
             x_survival.append(interaction[1][nnce.EARTH])

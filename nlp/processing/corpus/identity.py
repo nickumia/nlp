@@ -48,7 +48,7 @@ def getWords(contexts):
     for context in contexts:
         matches = re.findall(char_word, context[0], flags=re.I | re.M | re.U)
         if matches != []:
-            if type(matches[0]) == tuple:
+            if isinstance(matches[0], tuple):
                 words += [i[0] for i in matches]
             else:
                 words += matches
@@ -67,7 +67,7 @@ def group(body, sanitizer=(lambda x: x), specific=None):
         result = []
         matches = re.findall(specific, body, flags=re.I | re.M | re.U)
         if matches != []:
-            if type(matches[0]) == tuple:
+            if isinstance(matches[0], tuple):
                 result = [sanitizer(i[0]) for i in matches]
             else:
                 result = sanitizer(matches)
@@ -76,7 +76,7 @@ def group(body, sanitizer=(lambda x: x), specific=None):
     for i, party in enumerate(GROUP_SEQUENCES):
         matches = re.findall(party, body, flags=re.I | re.M | re.U)
         if matches != []:
-            if type(matches[0]) == tuple:
+            if isinstance(matches[0], tuple):
                 group_map[GROUP_NAMES[i]] = [sanitizer(i[0]) for i in matches]
             else:
                 group_map[GROUP_NAMES[i]] = sanitizer(matches)
