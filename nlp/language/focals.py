@@ -58,7 +58,6 @@ class WordMap(nps.S3Storage):
                         # looked up?
                         pass
 
-
             word_freq = npcr.occurences(all_words)
             self.map[layer+1] = word_freq
         self.ranking = ranking
