@@ -18,6 +18,7 @@
       {"target": "trump", "type": "oppose"},
       {"target": "machiavelli", "type": "oppose"}
     ],
+    "lived": true,
     "notes": "ancient Indian ethical principle of 'nonviolence' or 'non-injury' toward all living beings, encompassing harmlessness in thought, speech, and action."
   },
   {
@@ -38,6 +39,7 @@
       {"target": "gandhi", "type": "support"},
       {"target": "trump", "type": "oppose"}
     ],
+    "lived": true,
     "notes": "Create constructive nonviolent tension to force negotiation and change.  Create new structure by breaking old systems."
   },
   {
@@ -56,6 +58,7 @@
     "whenFails": "Against resilient or principled opponents, or in systems where aggression causes backlash or erodes trust.",
     "relationships": [
     ],
+    "lived": true,
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
@@ -74,6 +77,7 @@
     "whenFails": "When opponents are principled, persistent, or can expose contradictions; risks legal, reputational, or social backlash.",
     "relationships": [
     ],
+    "lived": true,
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
@@ -92,6 +96,7 @@
     "whenFails": "When outcomes are objectively verifiable or credibility is crucial; refusal to concede invites backlash or undermines influence.",
     "relationships": [
     ],
+    "lived": true,
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
@@ -111,6 +116,7 @@
     "relationships": [
       {"target": "gandhi", "type": "oppose"}
     ],
+    "lived": true,
     "notes": "Appear weak when strong, strong when weak. Conceal intentions, mislead opponents, control perceptions. Goal: Gain advantage without unnecessary direct conflict"
   },
   {
@@ -131,6 +137,7 @@
       {"target": "epictetus", "type": "similar"},
       {"target": "trump3", "type": "oppose"}
     ],
+    "lived": false,
     "notes": "stoicism acceptance"
   },
   {
@@ -172,6 +179,7 @@
       {"target": "nietzsche", "type": "oppose"},
       {"target": "trump", "type": "oppose"}
     ],
+    "lived": false,
     "notes": "Maintain social harmony through duty and hierarchy."
   },
   {
