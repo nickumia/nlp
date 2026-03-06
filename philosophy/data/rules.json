@@ -18,8 +18,7 @@
       {"target": "trump", "type": "oppose"},
       {"target": "machiavelli", "type": "oppose"}
     ],
-    "influenceWeight": 0.9,
-    "notes": "Resist oppression through nonviolent means while maintaining moral legitimacy."
+    "notes": "ancient Indian ethical principle of 'nonviolence' or 'non-injury' toward all living beings, encompassing harmlessness in thought, speech, and action."
   },
   {
     "id": "mlk",
@@ -39,7 +38,6 @@
       {"target": "gandhi", "type": "support"},
       {"target": "trump", "type": "oppose"}
     ],
-    "influenceWeight": 0.85,
     "notes": "Create constructive nonviolent tension to force negotiation and change."
   },
   {
@@ -60,7 +58,6 @@
       {"target": "nietzsche", "type": "similar"},
       {"target": "machiavelli", "type": "similar"}
     ],
-    "influenceWeight": 0.7,
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
@@ -81,7 +78,6 @@
       {"target": "machiavelli", "type": "similar"},
       {"target": "gandhi", "type": "oppose"}
     ],
-    "influenceWeight": 0.8,
     "notes": "Win through superior positioning and information advantage."
   },
   {
@@ -102,7 +98,6 @@
       {"target": "epictetus", "type": "similar"},
       {"target": "trump", "type": "oppose"}
     ],
-    "influenceWeight": 0.75,
     "notes": "Focus on what you control and accept the rest."
   },
   {
@@ -124,7 +119,6 @@
       {"target": "gandhi", "type": "oppose"},
       {"target": "marcus_aurelius", "type": "oppose"}
     ],
-    "influenceWeight": 0.7,
     "notes": "Assert strength and create your own values."
   },
   {
@@ -145,7 +139,6 @@
       {"target": "nietzsche", "type": "oppose"},
       {"target": "trump", "type": "oppose"}
     ],
-    "influenceWeight": 0.8,
     "notes": "Maintain social harmony through duty and hierarchy."
   },
   {
@@ -167,7 +160,6 @@
       {"target": "trump", "type": "similar"},
       {"target": "gandhi", "type": "oppose"}
     ],
-    "influenceWeight": 0.75,
     "notes": "Use whatever means are necessary to maintain power."
   },
   {
@@ -187,7 +179,6 @@
     "relationships": [
       {"target": "marcus_aurelius", "type": "similar"}
     ],
-    "influenceWeight": 0.7,
     "notes": "Suffering comes from judgments rather than events."
   },
   {
@@ -205,7 +196,6 @@
     "whenWorks": "When adaptability is required.",
     "whenFails": "When rigid structure is necessary.",
     "relationships": [],
-    "influenceWeight": 0.65,
     "notes": "Adapt fluidly to circumstances instead of rigid doctrine."
   },
   {
@@ -225,7 +215,6 @@
     "relationships": [
       {"target": "nietzsche", "type": "oppose"}
     ],
-    "influenceWeight": 0.9,
     "notes": "Truth exists independently and can be discovered through reason."
   },
   {
@@ -243,7 +232,6 @@
     "whenWorks": "When breakthrough innovation is required.",
     "whenFails": "When stability and predictability matter.",
     "relationships": [],
-    "influenceWeight": 0.75,
     "notes": "Pursue radical innovation despite high uncertainty."
   },
   {
@@ -263,7 +251,6 @@
     "relationships": [
       {"target": "musk", "type": "oppose"}
     ],
-    "influenceWeight": 0.85,
     "notes": "Build advantage slowly through discipline and patience."
   },
   {
@@ -281,7 +268,6 @@
     "whenWorks": "When loyalty bonds create strong teams.",
     "whenFails": "When broader cooperation is required.",
     "relationships": [],
-    "influenceWeight": 0.6,
     "notes": "Loyalty to one's inner circle overrides all other considerations."
   },
   {
@@ -301,7 +287,6 @@
     "relationships": [
       {"target": "nietzsche", "type": "similar"}
     ],
-    "influenceWeight": 0.75,
     "notes": "Assert identity and conviction publicly and unapologetically."
   }
 ]

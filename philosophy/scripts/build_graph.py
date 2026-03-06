@@ -30,7 +30,6 @@ def build_graph(rules: List[Dict], relationships: List[Dict],
             axes=rule['axes'],
             whenWorks=rule.get('whenWorks', ''),
             whenFails=rule.get('whenFails', ''),
-            influenceWeight=rule.get('influenceWeight', 0.5),
             notes=rule.get('notes', '')
         )
     
@@ -87,7 +86,6 @@ def build_complete_graph(rules_path: str, relationships_path: str = None,
             axes=rule['axes'],
             whenWorks=rule.get('whenWorks', ''),
             whenFails=rule.get('whenFails', ''),
-            influenceWeight=rule.get('influenceWeight', 0.5),
             notes=rule.get('notes', '')
         )
     
@@ -134,9 +132,7 @@ if __name__ == '__main__':
     for edge_type, count in sorted(edge_types.items()):
         print(f"  {edge_type}: {count}")
     
-    print(f"\nNodes with highest influence weight:")
-    nodes_by_weight = sorted(G.nodes(data=True), 
-                            key=lambda x: x[1].get('influenceWeight', 0), 
-                            reverse=True)
-    for node_id, data in nodes_by_weight[:5]:
-        print(f"  {data['name']}: {data.get('influenceWeight', 0)}")
+    print(f"\nTotal nodes: {G.number_of_nodes()}")
+    print(f"Total edges: {G.number_of_edges()}")
+    
+    # Display edge type distribution

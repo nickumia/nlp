@@ -47,8 +47,7 @@ def render_static_graph(G: nx.Graph, output_path: Path, figsize=(16, 12)):
     
     node_sizes = []
     for node_id, data in G.nodes(data=True):
-        influence = data.get('influenceWeight', 0.5)
-        node_sizes.append(influence * 2000 + 500)
+        node_sizes.append(1500)  # Fixed size for all nodes
     
     nx.draw_networkx_nodes(G, pos, node_size=node_sizes, 
                           node_color='#ecf0f1', edgecolors='#2c3e50', 
@@ -108,10 +107,9 @@ def render_interactive_graph(G: nx.Graph, output_path: Path):
         node['title'] += f"<b>Rule:</b> {node_data['rule']}<br><br>"
         node['title'] += f"<b>When it works:</b> {node_data.get('whenWorks', 'N/A')}<br>"
         node['title'] += f"<b>When it fails:</b> {node_data.get('whenFails', 'N/A')}<br>"
-        node['title'] += f"<b>Influence:</b> {node_data.get('influenceWeight', 0)}<br>"
         node['title'] += f"<b>Notes:</b> {node_data.get('notes', 'N/A')}"
         
-        node['size'] = node_data.get('influenceWeight', 0.5) * 30 + 10
+        node['size'] = 25  # Fixed size for all nodes
         
         axes = node_data['axes']
         node['color'] = get_node_color(axes)

@@ -153,7 +153,6 @@ def generate_report(G: nx.Graph, output_path: Path):
         for node_id, data in G.nodes(data=True):
             f.write(f"\n{data['name']} ({node_id})\n")
             f.write(f"  Rule: {data['rule']}\n")
-            f.write(f"  Influence Weight: {data.get('influenceWeight', 0)}\n")
             f.write(f"  Centrality Scores:\n")
             f.write(f"    Betweenness: {centrality[node_id]['betweenness']:.3f}\n")
             f.write(f"    Degree: {centrality[node_id]['degree']:.3f}\n")
