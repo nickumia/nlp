@@ -253,21 +253,38 @@
     "notes": "Truth exists independently and can be discovered through reason."
   },
   {
-    "id": "musk",
+    "id": "musk1",
     "name": "Elon Musk",
-    "rule": "Take Extreme Risks to Bend the Future",
+    "rule": "Reason from First Principles",
     "axes": {
-      "conflict": 0.4,
-      "truth": 0.6,
-      "order": -0.2,
-      "will": -0.6,
-      "risk": 1,
-      "time": 0.9
+      "conflict": -0.7,
+      "truth": 1.0,
+      "order": -0.7,
+      "will": -1.0,
+      "risk": -0.9,
+      "time": 0.85
     },
-    "whenWorks": "When breakthrough innovation is required.",
-    "whenFails": "When stability and predictability matter.",
     "relationships": [],
-    "notes": "Pursue radical innovation despite high uncertainty."
+    "whenWorks": "When industry 'wisdom' says something is impossible or too expensive.",
+    "whenFails": "When human relations, safety margins, or social consensus are the priority.",
+    "notes": "Break problems down to fundamental physical truths. Reject analogies ('we do it because it's always been done'). If the physics allow it, the only remaining barrier is the intensity of your will."
+  },
+  {
+    "id": "musk2",
+    "name": "Elon Musk",
+    "rule": "Execute at the Limit (Work like hell)",
+    "axes": {
+      "conflict": 0.9,
+      "truth": 0,
+      "order": -0.4,
+      "will": 1.0,
+      "risk": 1.0,
+      "time": -0.5
+    },
+    "relationships": [],
+    "whenWorks": "When industry 'wisdom' says something is impossible or too expensive.",
+    "whenFails": "When human relations, safety margins, or social consensus are the priority.",
+    "notes": "Break problems down to fundamental physical truths. Reject analogies ('we do it because it's always been done'). If the physics allow it, the only remaining barrier is the intensity of your will."
   },
   {
     "id": "buffett",
