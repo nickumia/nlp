@@ -201,20 +201,18 @@
   {
     "id": "epictetus",
     "name": "Epictetus",
-    "rule": "Master Your Judgments",
+    "rule": "Master your response to what you can control.",
     "axes": {
-      "conflict": -0.4,
+      "conflict": -0.5,
       "truth": 0.7,
-      "order": 0.9,
-      "will": 0.2,
-      "risk": -0.7,
-      "time": 0.6
+      "order": 0.8,
+      "will": -0.8,
+      "risk": -0.8,
+      "time": 0.7
     },
     "whenWorks": "When internal discipline is required.",
     "whenFails": "When structural injustice requires action.",
-    "relationships": [
-      {"target": "marcus_aurelius", "type": "similar"}
-    ],
+    "relationships": [],
     "notes": "Suffering comes from judgments rather than events."
   },
   {
