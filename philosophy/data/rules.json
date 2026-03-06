@@ -6,10 +6,10 @@
     "axes": {
       "conflict": -1,
       "truth": 1,
-      "order": -0.5,
-      "will": 1,
-      "risk": 0.4,
-      "time": 0.8
+      "order": -0.3,
+      "will": 0.9,
+      "risk": 0.75,
+      "time": 0.85
     },
     "whenWorks": "When moral legitimacy and public visibility matter.",
     "whenFails": "Against actors who ignore moral pressure.",
