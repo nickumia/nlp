@@ -1,9 +1,8 @@
 [
   {
-    "id": "gandhi_nonviolence",
-    "name": "Nonviolent Resistance",
-    "source": "Mahatma Gandhi",
-    "description": "Resist oppression through nonviolent means, maintaining moral legitimacy while seeking change.",
+    "id": "gandhi",
+    "name": "Mahatma Gandhi",
+    "rule": "Nonviolent Resistance",
     "axes": {
       "conflict": -1,
       "truth": 1,
@@ -12,18 +11,17 @@
       "risk": 0.4,
       "time": 0.8
     },
-    "whenWorks": "When moral legitimacy and public visibility matter, and the opponent values reputation.",
-    "whenFails": "Against actors who ignore moral pressure or use overwhelming force.",
-    "similarTo": ["mlk_nonviolence"],
-    "opposes": ["trump_art_of_deal"],
+    "whenWorks": "When moral legitimacy and public visibility matter.",
+    "whenFails": "Against actors who ignore moral pressure.",
+    "similarTo": ["mlk"],
+    "opposes": ["trump", "machiavelli"],
     "influenceWeight": 0.9,
-    "notes": "Requires patience and strategic non-cooperation."
+    "notes": "Resist oppression through nonviolent means while maintaining moral legitimacy."
   },
   {
-    "id": "mlk_nonviolence",
-    "name": "Nonviolent Direct Action",
-    "source": "Martin Luther King Jr.",
-    "description": "Create constructive nonviolent tension to force negotiation and change.",
+    "id": "mlk",
+    "name": "Martin Luther King Jr.",
+    "rule": "Nonviolent Direct Action",
     "axes": {
       "conflict": -0.8,
       "truth": 0.9,
@@ -32,18 +30,17 @@
       "risk": 0.6,
       "time": 0.7
     },
-    "whenWorks": "When seeking to expose injustice and force moral reckoning.",
+    "whenWorks": "When injustice must be exposed publicly.",
     "whenFails": "When opponents are indifferent to moral pressure.",
-    "similarTo": ["gandhi_nonviolence"],
-    "opposes": ["trump_art_of_deal"],
+    "similarTo": ["gandhi"],
+    "opposes": ["trump"],
     "influenceWeight": 0.85,
-    "notes": "Emphasizes creating crisis that forces negotiation."
+    "notes": "Create constructive nonviolent tension to force negotiation and change."
   },
   {
-    "id": "trump_art_of_deal",
-    "name": "Transactional Negotiation",
-    "source": "Donald Trump",
-    "description": "Use leverage, unpredictability, and maximum pressure to extract concessions.",
+    "id": "trump",
+    "name": "Donald Trump",
+    "rule": "Attack, Deny, Never Concede",
     "axes": {
       "conflict": 0.9,
       "truth": 0.3,
@@ -52,18 +49,17 @@
       "risk": 0.8,
       "time": -0.2
     },
-    "whenWorks": "When you have asymmetric leverage and can absorb losses.",
-    "whenFails": "Against principled opponents who walk away from bad deals.",
-    "similarTo": [],
-    "opposes": ["gandhi_nonviolence", "mlk_nonviolence"],
+    "whenWorks": "When leverage and persistence can overwhelm opposition.",
+    "whenFails": "When trust and cooperation are required.",
+    "similarTo": ["nietzsche", "machiavelli"],
+    "opposes": ["gandhi", "mlk"],
     "influenceWeight": 0.7,
-    "notes": "Prioritizes winning over relationship or principle."
+    "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
-    "id": "sun_tzu_deception",
-    "name": "Strategic Deception",
-    "source": "Sun Tzu",
-    "description": "Appear weak when you are strong, and strong when you are weak.",
+    "id": "sun_tzu",
+    "name": "Sun Tzu",
+    "rule": "Strategic Deception",
     "axes": {
       "conflict": 0.7,
       "truth": -0.5,
@@ -72,18 +68,17 @@
       "risk": 0.5,
       "time": 0.2
     },
-    "whenWorks": "In competitive environments where information asymmetry matters.",
-    "whenFails": "When trust is essential for long-term cooperation.",
-    "similarTo": [],
-    "opposes": ["gandhi_nonviolence"],
+    "whenWorks": "When information asymmetry and planning matter.",
+    "whenFails": "When trust is essential.",
+    "similarTo": ["machiavelli"],
+    "opposes": ["gandhi"],
     "influenceWeight": 0.8,
-    "notes": "Emphasizes winning before fighting."
+    "notes": "Win through superior positioning and information advantage."
   },
   {
-    "id": "marcus_aurelius_stoicism",
-    "name": "Stoic Acceptance",
-    "source": "Marcus Aurelius",
-    "description": "Accept what you cannot control, focus on what you can.",
+    "id": "marcus_aurelius",
+    "name": "Marcus Aurelius",
+    "rule": "Stoic Acceptance",
     "axes": {
       "conflict": -0.3,
       "truth": 0.6,
@@ -92,18 +87,17 @@
       "risk": -0.6,
       "time": 0.5
     },
-    "whenWorks": "When facing circumstances beyond your control.",
-    "whenFails": "When action is possible and necessary.",
-    "similarTo": [],
-    "opposes": ["trump_art_of_deal"],
+    "whenWorks": "When events cannot be controlled.",
+    "whenFails": "When decisive action is required.",
+    "similarTo": ["epictetus"],
+    "opposes": ["trump"],
     "influenceWeight": 0.75,
-    "notes": "Internal discipline over external outcomes."
+    "notes": "Focus on what you control and accept the rest."
   },
   {
-    "id": "nietzsche_will_to_power",
-    "name": "Will to Power",
-    "source": "Friedrich Nietzsche",
-    "description": "Assert your will and overcome constraints through strength.",
+    "id": "nietzsche",
+    "name": "Friedrich Nietzsche",
+    "rule": "Will to Power",
     "axes": {
       "conflict": 0.8,
       "truth": -0.7,
@@ -112,18 +106,17 @@
       "risk": 0.9,
       "time": 0.3
     },
-    "whenWorks": "When building something new requires breaking old structures.",
-    "whenFails": "When collaboration and stability are needed.",
-    "similarTo": ["trump_art_of_deal"],
-    "opposes": ["gandhi_nonviolence", "marcus_aurelius_stoicism"],
+    "whenWorks": "When transformation requires breaking norms.",
+    "whenFails": "When stability or cooperation are necessary.",
+    "similarTo": ["trump"],
+    "opposes": ["gandhi", "marcus_aurelius"],
     "influenceWeight": 0.7,
-    "notes": "Embraces conflict as necessary for growth."
+    "notes": "Assert strength and create your own values."
   },
   {
-    "id": "confucius_harmony",
-    "name": "Harmonious Order",
-    "source": "Confucius",
-    "description": "Maintain social harmony through respect for hierarchy and relationships.",
+    "id": "confucius",
+    "name": "Confucius",
+    "rule": "Harmonious Order",
     "axes": {
       "conflict": -0.9,
       "truth": 0.5,
@@ -132,18 +125,17 @@
       "risk": -0.7,
       "time": 0.6
     },
-    "whenWorks": "In stable societies where relationships matter more than efficiency.",
-    "whenFails": "When rapid innovation or individual rights are prioritized.",
+    "whenWorks": "In stable societies built on relationships.",
+    "whenFails": "During rapid innovation or upheaval.",
     "similarTo": [],
-    "opposes": ["nietzsche_will_to_power", "trump_art_of_deal"],
+    "opposes": ["nietzsche", "trump"],
     "influenceWeight": 0.8,
-    "notes": "Emphasizes duty and proper conduct."
+    "notes": "Maintain social harmony through duty and hierarchy."
   },
   {
-    "id": "machiavelli_realism",
-    "name": "Political Realism",
-    "source": "Niccolò Machiavelli",
-    "description": "Do what is necessary to maintain power and achieve goals.",
+    "id": "machiavelli",
+    "name": "Niccolò Machiavelli",
+    "rule": "Political Realism",
     "axes": {
       "conflict": 0.6,
       "truth": 0,
@@ -152,11 +144,144 @@
       "risk": 0.3,
       "time": -0.1
     },
-    "whenWorks": "In high-stakes political environments where survival is at stake.",
-    "whenFails": "When moral legitimacy and trust are essential.",
-    "similarTo": ["sun_tzu_deception"],
-    "opposes": ["gandhi_nonviolence", "marcus_aurelius_stoicism"],
+    "whenWorks": "When survival in power politics is the priority.",
+    "whenFails": "When legitimacy and trust matter.",
+    "similarTo": ["sun_tzu", "trump"],
+    "opposes": ["gandhi"],
     "influenceWeight": 0.75,
-    "notes": "Pragmatism over idealism."
+    "notes": "Use whatever means are necessary to maintain power."
+  },
+  {
+    "id": "epictetus",
+    "name": "Epictetus",
+    "rule": "Master Your Judgments",
+    "axes": {
+      "conflict": -0.4,
+      "truth": 0.7,
+      "order": 0.9,
+      "will": 0.2,
+      "risk": -0.7,
+      "time": 0.6
+    },
+    "whenWorks": "When internal discipline is required.",
+    "whenFails": "When structural injustice requires action.",
+    "similarTo": ["marcus_aurelius"],
+    "opposes": [],
+    "influenceWeight": 0.7,
+    "notes": "Suffering comes from judgments rather than events."
+  },
+  {
+    "id": "bruce_lee",
+    "name": "Bruce Lee",
+    "rule": "Be Like Water",
+    "axes": {
+      "conflict": 0,
+      "truth": 0.2,
+      "order": -0.4,
+      "will": 0,
+      "risk": 0.4,
+      "time": 0.3
+    },
+    "whenWorks": "When adaptability is required.",
+    "whenFails": "When rigid structure is necessary.",
+    "similarTo": [],
+    "opposes": [],
+    "influenceWeight": 0.65,
+    "notes": "Adapt fluidly to circumstances instead of rigid doctrine."
+  },
+  {
+    "id": "einstein",
+    "name": "Albert Einstein",
+    "rule": "Reality Is Discoverable",
+    "axes": {
+      "conflict": -0.2,
+      "truth": 1,
+      "order": 0.6,
+      "will": 0.1,
+      "risk": 0.3,
+      "time": 0.7
+    },
+    "whenWorks": "When seeking objective understanding.",
+    "whenFails": "When human dynamics outweigh facts.",
+    "similarTo": [],
+    "opposes": ["nietzsche"],
+    "influenceWeight": 0.9,
+    "notes": "Truth exists independently and can be discovered through reason."
+  },
+  {
+    "id": "musk",
+    "name": "Elon Musk",
+    "rule": "Take Extreme Risks to Bend the Future",
+    "axes": {
+      "conflict": 0.4,
+      "truth": 0.6,
+      "order": -0.2,
+      "will": -0.6,
+      "risk": 1,
+      "time": 0.9
+    },
+    "whenWorks": "When breakthrough innovation is required.",
+    "whenFails": "When stability and predictability matter.",
+    "similarTo": [],
+    "opposes": [],
+    "influenceWeight": 0.75,
+    "notes": "Pursue radical innovation despite high uncertainty."
+  },
+  {
+    "id": "buffett",
+    "name": "Warren Buffett",
+    "rule": "Compound Patiently",
+    "axes": {
+      "conflict": -0.4,
+      "truth": 0.7,
+      "order": 0.8,
+      "will": 0.3,
+      "risk": -0.6,
+      "time": 1
+    },
+    "whenWorks": "When compounding advantages matter.",
+    "whenFails": "In rapidly changing environments.",
+    "similarTo": [],
+    "opposes": ["musk"],
+    "influenceWeight": 0.85,
+    "notes": "Build advantage slowly through discipline and patience."
+  },
+  {
+    "id": "toretto",
+    "name": "Dominic Toretto",
+    "rule": "Family Above Everything",
+    "axes": {
+      "conflict": 0.3,
+      "truth": 0,
+      "order": -0.2,
+      "will": -0.3,
+      "risk": 0.7,
+      "time": 0.2
+    },
+    "whenWorks": "When loyalty bonds create strong teams.",
+    "whenFails": "When broader cooperation is required.",
+    "similarTo": [],
+    "opposes": [],
+    "influenceWeight": 0.6,
+    "notes": "Loyalty to one's inner circle overrides all other considerations."
+  },
+  {
+    "id": "ali",
+    "name": "Muhammad Ali",
+    "rule": "Declare Greatness and Stand By It",
+    "axes": {
+      "conflict": 0.5,
+      "truth": 0.3,
+      "order": -0.1,
+      "will": -0.8,
+      "risk": 0.7,
+      "time": 0.3
+    },
+    "whenWorks": "When confidence inspires followers.",
+    "whenFails": "When humility and compromise are needed.",
+    "similarTo": ["nietzsche"],
+    "opposes": [],
+    "influenceWeight": 0.75,
+    "notes": "Assert identity and conviction publicly and unapologetically."
   }
 ]

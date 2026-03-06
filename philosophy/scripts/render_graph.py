@@ -105,8 +105,7 @@ def render_interactive_graph(G: nx.Graph, output_path: Path):
     for node in net.nodes:
         node_data = G.nodes[node['id']]
         node['title'] = f"<b>{node_data['name']}</b><br>"
-        node['title'] += f"Source: {node_data['source']}<br>"
-        node['title'] += f"<i>{node_data['description']}</i><br><br>"
+        node['title'] += f"<b>Rule:</b> {node_data['rule']}<br><br>"
         node['title'] += f"<b>When it works:</b> {node_data.get('whenWorks', 'N/A')}<br>"
         node['title'] += f"<b>When it fails:</b> {node_data.get('whenFails', 'N/A')}<br>"
         node['title'] += f"<b>Influence:</b> {node_data.get('influenceWeight', 0)}<br>"
