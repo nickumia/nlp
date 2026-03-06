@@ -176,33 +176,27 @@
     },
     "whenWorks": "In stable societies built on relationships.",
     "whenFails": "During rapid innovation or upheaval.",
-    "relationships": [
-      {"target": "nietzsche", "type": "oppose"},
-      {"target": "trump", "type": "oppose"}
-    ],
+    "relationships": [],
     "lived": false,
     "notes": "Maintain social harmony through duty and hierarchy."
   },
   {
     "id": "machiavelli",
     "name": "Niccolò Machiavelli",
-    "rule": "Political Realism",
+    "rule": "The ends justify the means",
     "axes": {
-      "conflict": 0.6,
-      "truth": 0,
+      "conflict": 0.75,
+      "truth": -0.2,
       "order": 0.7,
-      "will": 0.4,
-      "risk": 0.3,
-      "time": -0.1
+      "will": 0.5,
+      "risk": 0.7,
+      "time": 0.5
     },
-    "whenWorks": "When survival in power politics is the priority.",
-    "whenFails": "When legitimacy and trust matter.",
-    "relationships": [
-      {"target": "sun_tzu", "type": "similar"},
-      {"target": "trump", "type": "similar"},
-      {"target": "gandhi", "type": "oppose"}
-    ],
-    "notes": "Use whatever means are necessary to maintain power."
+    "whenWorks": "When survival, state stability, or political influence is paramount, and moral compromise is acceptable.",
+    "whenFails": "When legitimacy, trust, or long-term alliances are crucial; over-ruthlessness backfires.",
+    "relationships": [],
+    "lived": false,
+    "notes": "Political Realism; Use whatever means are necessary to maintain power."
   },
   {
     "id": "epictetus",
