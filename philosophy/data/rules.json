@@ -159,19 +159,20 @@
       {"target": "gandhi", "type": "oppose"},
       {"target": "marcus_aurelius", "type": "oppose"}
     ],
+    "lived": false,
     "notes": "Emphasizes self-overcoming, taking initiative, and creating value proactively"
   },
   {
     "id": "confucius",
     "name": "Confucius",
-    "rule": "Harmonious Order",
+    "rule": "Lead by example to maintain ethical order.",
     "axes": {
-      "conflict": -0.9,
+      "conflict": -0.85,
       "truth": 0.5,
       "order": -1,
-      "will": 0.2,
+      "will": 0.6,
       "risk": -0.7,
-      "time": 0.6
+      "time": 0.8
     },
     "whenWorks": "In stable societies built on relationships.",
     "whenFails": "During rapid innovation or upheaval.",
