@@ -236,14 +236,14 @@
   {
     "id": "einstein",
     "name": "Albert Einstein",
-    "rule": "Reality Is Discoverable",
+    "rule": "Seek to understand reality through observation, reasoning, and challenging assumptions.",
     "axes": {
-      "conflict": -0.2,
+      "conflict": 0.2,
       "truth": 1,
-      "order": 0.6,
-      "will": 0.1,
-      "risk": 0.3,
-      "time": 0.7
+      "order": -0.5,
+      "will": 0.3,
+      "risk": 0.5,
+      "time": 0.8
     },
     "whenWorks": "When seeking objective understanding.",
     "whenFails": "When human dynamics outweigh facts.",
