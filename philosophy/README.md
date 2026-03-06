@@ -49,8 +49,8 @@ pip install -r requirements.txt
 Build and run using Docker:
 
 ```bash
-# Build the image
-docker build -t philosophy-map .
+# Build the image (preserves file ownership)
+docker build --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) -t philosophy-map .
 
 # Run the graph generation
 docker run -v $(pwd)/output:/app/output philosophy-map
@@ -62,14 +62,27 @@ docker run -v $(pwd)/output:/app/output philosophy-map python scripts/analysis.p
 For Windows PowerShell:
 
 ```powershell
-# Build the image
-docker build -t philosophy-map .
+# Build the image (preserves file ownership)
+docker build --build-arg USER_ID=$env:UID --build-arg GROUP_ID=$env:GID -t philosophy-map
 
 # Run the graph generation
 docker run -v "${PWD}/output:/app/output" philosophy-map
 
 # Run analysis
 docker run -v "${PWD}/output:/app/output" philosophy-map python scripts/analysis.py
+```
+
+For Windows CMD:
+
+```cmd
+# Build the image (preserves file ownership)
+docker build --build-arg USER_ID=1000 --build-arg GROUP_ID=1000 -t philosophy-map
+
+# Run the graph generation
+docker run -v "%cd%/output:/app/output" philosophy-map
+
+# Run analysis
+docker run -v "%cd%/output:/app/output" philosophy-map python scripts/analysis.py
 ```
 
 ## Usage
