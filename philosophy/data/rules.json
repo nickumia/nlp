@@ -41,7 +41,7 @@
     "notes": "Create constructive nonviolent tension to force negotiation and change.  Create new structure by breaking old systems."
   },
   {
-    "id": "trump",
+    "id": "trump1",
     "name": "Donald Trump",
     "rule": "Attack, attack, attack",
     "axes": {
@@ -59,7 +59,7 @@
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
-    "id": "trump",
+    "id": "trump2",
     "name": "Donald Trump",
     "rule": "Deny everything.  Admit nothing.",
     "axes": {
@@ -77,7 +77,7 @@
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
   {
-    "id": "trump",
+    "id": "trump3",
     "name": "Donald Trump",
     "rule": "Never Concede.  Turn every loss into a win.",
     "axes": {
@@ -97,22 +97,21 @@
   {
     "id": "sun_tzu",
     "name": "Sun Tzu",
-    "rule": "Strategic Deception",
+    "rule": "Control perception to gain advantage.",
     "axes": {
-      "conflict": 0.7,
+      "conflict": 0.3,
       "truth": -0.5,
-      "order": 0.4,
-      "will": 0.3,
-      "risk": 0.5,
-      "time": 0.2
+      "order": -0.2,
+      "will": 0.6,
+      "risk": 0.2,
+      "time": 0.25
     },
     "whenWorks": "When information asymmetry and planning matter.",
     "whenFails": "When trust is essential.",
     "relationships": [
-      {"target": "machiavelli", "type": "similar"},
       {"target": "gandhi", "type": "oppose"}
     ],
-    "notes": "Win through superior positioning and information advantage."
+    "notes": "Appear weak when strong, strong when weak. Conceal intentions, mislead opponents, control perceptions. Goal: Gain advantage without unnecessary direct conflict"
   },
   {
     "id": "marcus_aurelius",
