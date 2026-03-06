@@ -23,13 +23,13 @@
   {
     "id": "mlk",
     "name": "Martin Luther King Jr.",
-    "rule": "Nonviolent Direct Action",
+    "rule": "Create tension through disciplined nonviolent action to force change, accepting risk without retaliation",
     "axes": {
       "conflict": -0.8,
-      "truth": 0.9,
+      "truth": 0.8,
       "order": -0.3,
       "will": 0.8,
-      "risk": 0.6,
+      "risk": 0.7,
       "time": 0.7
     },
     "whenWorks": "When injustice must be exposed publicly.",
@@ -38,7 +38,7 @@
       {"target": "gandhi", "type": "support"},
       {"target": "trump", "type": "oppose"}
     ],
-    "notes": "Create constructive nonviolent tension to force negotiation and change."
+    "notes": "Create constructive nonviolent tension to force negotiation and change.  Create new structure by breaking old systems."
   },
   {
     "id": "trump",
