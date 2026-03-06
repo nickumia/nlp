@@ -43,20 +43,54 @@
   {
     "id": "trump",
     "name": "Donald Trump",
-    "rule": "Attack, Deny, Never Concede",
+    "rule": "Attack, attack, attack",
     "axes": {
-      "conflict": 0.9,
-      "truth": 0.3,
-      "order": 0.6,
-      "will": -1,
+      "conflict": 1,
+      "truth": 0.8,
+      "order": -0.6,
+      "will": 1,
       "risk": 0.8,
-      "time": -0.2
+      "time": 0.3
     },
-    "whenWorks": "When leverage and persistence can overwhelm opposition.",
-    "whenFails": "When trust and cooperation are required.",
+    "whenWorks": "Against weaker or reactive opponents, where aggression creates leverage and momentum.",
+    "whenFails": "Against resilient or principled opponents, or in systems where aggression causes backlash or erodes trust.",
     "relationships": [
-      {"target": "nietzsche", "type": "similar"},
-      {"target": "machiavelli", "type": "similar"}
+    ],
+    "notes": "Use pressure, dominance, and narrative control to win negotiations."
+  },
+  {
+    "id": "trump",
+    "name": "Donald Trump",
+    "rule": "Deny everything.  Admit nothing.",
+    "axes": {
+      "conflict": 1,
+      "truth": -1,
+      "order": -0.6,
+      "will": -0.5,
+      "risk": 0.55,
+      "time": -0.4
+    },
+    "whenWorks": "When opponents are reactive, unsure, or lack evidence; maintains leverage through consistent denial.",
+    "whenFails": "When opponents are principled, persistent, or can expose contradictions; risks legal, reputational, or social backlash.",
+    "relationships": [
+    ],
+    "notes": "Use pressure, dominance, and narrative control to win negotiations."
+  },
+  {
+    "id": "trump",
+    "name": "Donald Trump",
+    "rule": "Never Concede.  Turn every loss into a win.",
+    "axes": {
+      "conflict": 0.8,
+      "truth": -0.75,
+      "order": 0.6,
+      "will": 0.8,
+      "risk": 0.7,
+      "time": 0
+    },
+    "whenWorks": "When perception and leverage matter, and opponents are uncertain or sensitive to image.",
+    "whenFails": "When outcomes are objectively verifiable or credibility is crucial; refusal to concede invites backlash or undermines influence.",
+    "relationships": [
     ],
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
