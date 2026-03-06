@@ -133,3 +133,5 @@ dmypy.json
 dictionary.dump
 test.dump
 wordmap.dump
+
+philosophy/output

@@ -1,0 +1,67 @@
+[
+  {
+    "source": "gandhi_nonviolence",
+    "target": "mlk_nonviolence",
+    "type": "support"
+  },
+  {
+    "source": "gandhi_nonviolence",
+    "target": "trump_art_of_deal",
+    "type": "oppose"
+  },
+  {
+    "source": "mlk_nonviolence",
+    "target": "trump_art_of_deal",
+    "type": "oppose"
+  },
+  {
+    "source": "gandhi_nonviolence",
+    "target": "sun_tzu_deception",
+    "type": "oppose"
+  },
+  {
+    "source": "trump_art_of_deal",
+    "target": "marcus_aurelius_stoicism",
+    "type": "oppose"
+  },
+  {
+    "source": "nietzsche_will_to_power",
+    "target": "trump_art_of_deal",
+    "type": "similar"
+  },
+  {
+    "source": "nietzsche_will_to_power",
+    "target": "gandhi_nonviolence",
+    "type": "oppose"
+  },
+  {
+    "source": "nietzsche_will_to_power",
+    "target": "marcus_aurelius_stoicism",
+    "type": "oppose"
+  },
+  {
+    "source": "confucius_harmony",
+    "target": "nietzsche_will_to_power",
+    "type": "oppose"
+  },
+  {
+    "source": "confucius_harmony",
+    "target": "trump_art_of_deal",
+    "type": "oppose"
+  },
+  {
+    "source": "machiavelli_realism",
+    "target": "sun_tzu_deception",
+    "type": "similar"
+  },
+  {
+    "source": "machiavelli_realism",
+    "target": "gandhi_nonviolence",
+    "type": "oppose"
+  },
+  {
+    "source": "machiavelli_realism",
+    "target": "marcus_aurelius_stoicism",
+    "type": "oppose"
+  }
+]

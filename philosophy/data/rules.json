@@ -1,0 +1,162 @@
+[
+  {
+    "id": "gandhi_nonviolence",
+    "name": "Nonviolent Resistance",
+    "source": "Mahatma Gandhi",
+    "description": "Resist oppression through nonviolent means, maintaining moral legitimacy while seeking change.",
+    "axes": {
+      "conflict": -1,
+      "truth": 1,
+      "order": -0.5,
+      "will": 1,
+      "risk": 0.4,
+      "time": 0.8
+    },
+    "whenWorks": "When moral legitimacy and public visibility matter, and the opponent values reputation.",
+    "whenFails": "Against actors who ignore moral pressure or use overwhelming force.",
+    "similarTo": ["mlk_nonviolence"],
+    "opposes": ["trump_art_of_deal"],
+    "influenceWeight": 0.9,
+    "notes": "Requires patience and strategic non-cooperation."
+  },
+  {
+    "id": "mlk_nonviolence",
+    "name": "Nonviolent Direct Action",
+    "source": "Martin Luther King Jr.",
+    "description": "Create constructive nonviolent tension to force negotiation and change.",
+    "axes": {
+      "conflict": -0.8,
+      "truth": 0.9,
+      "order": -0.3,
+      "will": 0.8,
+      "risk": 0.6,
+      "time": 0.7
+    },
+    "whenWorks": "When seeking to expose injustice and force moral reckoning.",
+    "whenFails": "When opponents are indifferent to moral pressure.",
+    "similarTo": ["gandhi_nonviolence"],
+    "opposes": ["trump_art_of_deal"],
+    "influenceWeight": 0.85,
+    "notes": "Emphasizes creating crisis that forces negotiation."
+  },
+  {
+    "id": "trump_art_of_deal",
+    "name": "Transactional Negotiation",
+    "source": "Donald Trump",
+    "description": "Use leverage, unpredictability, and maximum pressure to extract concessions.",
+    "axes": {
+      "conflict": 0.9,
+      "truth": 0.3,
+      "order": 0.6,
+      "will": -1,
+      "risk": 0.8,
+      "time": -0.2
+    },
+    "whenWorks": "When you have asymmetric leverage and can absorb losses.",
+    "whenFails": "Against principled opponents who walk away from bad deals.",
+    "similarTo": [],
+    "opposes": ["gandhi_nonviolence", "mlk_nonviolence"],
+    "influenceWeight": 0.7,
+    "notes": "Prioritizes winning over relationship or principle."
+  },
+  {
+    "id": "sun_tzu_deception",
+    "name": "Strategic Deception",
+    "source": "Sun Tzu",
+    "description": "Appear weak when you are strong, and strong when you are weak.",
+    "axes": {
+      "conflict": 0.7,
+      "truth": -0.5,
+      "order": 0.4,
+      "will": 0.3,
+      "risk": 0.5,
+      "time": 0.2
+    },
+    "whenWorks": "In competitive environments where information asymmetry matters.",
+    "whenFails": "When trust is essential for long-term cooperation.",
+    "similarTo": [],
+    "opposes": ["gandhi_nonviolence"],
+    "influenceWeight": 0.8,
+    "notes": "Emphasizes winning before fighting."
+  },
+  {
+    "id": "marcus_aurelius_stoicism",
+    "name": "Stoic Acceptance",
+    "source": "Marcus Aurelius",
+    "description": "Accept what you cannot control, focus on what you can.",
+    "axes": {
+      "conflict": -0.3,
+      "truth": 0.6,
+      "order": 0.8,
+      "will": 0,
+      "risk": -0.6,
+      "time": 0.5
+    },
+    "whenWorks": "When facing circumstances beyond your control.",
+    "whenFails": "When action is possible and necessary.",
+    "similarTo": [],
+    "opposes": ["trump_art_of_deal"],
+    "influenceWeight": 0.75,
+    "notes": "Internal discipline over external outcomes."
+  },
+  {
+    "id": "nietzsche_will_to_power",
+    "name": "Will to Power",
+    "source": "Friedrich Nietzsche",
+    "description": "Assert your will and overcome constraints through strength.",
+    "axes": {
+      "conflict": 0.8,
+      "truth": -0.7,
+      "order": 0.5,
+      "will": -1,
+      "risk": 0.9,
+      "time": 0.3
+    },
+    "whenWorks": "When building something new requires breaking old structures.",
+    "whenFails": "When collaboration and stability are needed.",
+    "similarTo": ["trump_art_of_deal"],
+    "opposes": ["gandhi_nonviolence", "marcus_aurelius_stoicism"],
+    "influenceWeight": 0.7,
+    "notes": "Embraces conflict as necessary for growth."
+  },
+  {
+    "id": "confucius_harmony",
+    "name": "Harmonious Order",
+    "source": "Confucius",
+    "description": "Maintain social harmony through respect for hierarchy and relationships.",
+    "axes": {
+      "conflict": -0.9,
+      "truth": 0.5,
+      "order": -1,
+      "will": 0.2,
+      "risk": -0.7,
+      "time": 0.6
+    },
+    "whenWorks": "In stable societies where relationships matter more than efficiency.",
+    "whenFails": "When rapid innovation or individual rights are prioritized.",
+    "similarTo": [],
+    "opposes": ["nietzsche_will_to_power", "trump_art_of_deal"],
+    "influenceWeight": 0.8,
+    "notes": "Emphasizes duty and proper conduct."
+  },
+  {
+    "id": "machiavelli_realism",
+    "name": "Political Realism",
+    "source": "Niccolò Machiavelli",
+    "description": "Do what is necessary to maintain power and achieve goals.",
+    "axes": {
+      "conflict": 0.6,
+      "truth": 0,
+      "order": 0.7,
+      "will": 0.4,
+      "risk": 0.3,
+      "time": -0.1
+    },
+    "whenWorks": "In high-stakes political environments where survival is at stake.",
+    "whenFails": "When moral legitimacy and trust are essential.",
+    "similarTo": ["sun_tzu_deception"],
+    "opposes": ["gandhi_nonviolence", "marcus_aurelius_stoicism"],
+    "influenceWeight": 0.75,
+    "notes": "Pragmatism over idealism."
+  }
+]
