@@ -136,23 +136,23 @@
   {
     "id": "nietzsche",
     "name": "Friedrich Nietzsche",
-    "rule": "Will to Power",
+    "rule": "Assert strength and create your own values.",
     "axes": {
       "conflict": 0.8,
-      "truth": -0.7,
+      "truth": -0.6,
       "order": 0.5,
-      "will": -1,
+      "will": -0.9,
       "risk": 0.9,
-      "time": 0.3
+      "time": 0.5
     },
     "whenWorks": "When transformation requires breaking norms.",
     "whenFails": "When stability or cooperation are necessary.",
     "relationships": [
-      {"target": "trump", "type": "similar"},
+      {"target": "trump3", "type": "similar"},
       {"target": "gandhi", "type": "oppose"},
       {"target": "marcus_aurelius", "type": "oppose"}
     ],
-    "notes": "Assert strength and create your own values."
+    "notes": "Emphasizes self-overcoming, taking initiative, and creating value proactively"
   },
   {
     "id": "confucius",
