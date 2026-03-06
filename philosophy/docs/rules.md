@@ -51,30 +51,30 @@ All axes use a **-1 to 1 scale** unless otherwise noted.
 | **0.0** | Conflict | Strategic | Treats conflict as a tool to be managed, calculates costs/benefits |
 | **0.5** | Conflict | Competitive | Engages in controlled conflict, seeks advantage through competition |
 | **1.0** | Conflict | Dominant | Uses force, intimidation, or overwhelming pressure to achieve goals |
-|---|---|---|---|
+||||
 | **-1.0** | Truth | Subjective | Truth determined by personal belief, intuition, or inner conviction |
 | **-0.5** | Truth | Relativistic | Multiple valid truths exist, truth depends on context or perspective |
 | **0.0** | Truth | Pragmatic | Truth serves practical outcomes and real-world effectiveness |
 | **0.5** | Truth | Objective | Single discoverable reality exists independently of observers |
-|---|---|---|---|
+||||
 | **-1.0** | Order | Structured | Follows established systems, hierarchies, and traditions |
 | **-0.5** | Order | Organized | Creates order through planning and coordination |
 | **0.0** | Order | Balanced | Mixes structure and flexibility as needed |
 | **0.5** | Order | Adaptive | Adjusts structure based on circumstances |
 | **1.0** | Order | Improvised | Creates order spontaneously, rejects rigid structures |
-|---|---|---|---|
+||||
 | **-1.0** | Will | Inward | Focuses on self-discipline, internal change, and personal development |
 | **-0.5** | Will | Reflective | Balances internal and external focus, considers multiple perspectives |
 | **0.0** | Will | Integrated | Coordinates internal and external efforts, seeks harmony |
 | **0.5** | Will | Expressive | Projects will outward into the world, seeks to change others |
 | **1.0** | Will | Outward | Seeks to change external conditions and other people |
-|---|---|---|---|
+||||
 | **-1.0** | Risk | Risk-Averse | Minimizes exposure, seeks security, prefers known paths |
 | **-0.5** | Risk | Cautious | Prefers known approaches, limits downside, careful planning |
 | **0.0** | Risk | Calculated | Takes risks when expected return justifies |
 | **0.5** | Risk | Opportunistic | Seeks favorable risk/reward opportunities |
 | **1.0** | Risk | Risk-Seeking | Embraces uncertainty, high-risk/high-reward approach |
-|---|---|---|---|
+||||
 | **-1.0** | Time | Short-Term | Focuses on immediate results and present moment |
 | **-0.5** | Time | Reactive | Responds to current conditions, limited future planning |
 | **0.0** | Time | Present-Balanced | Balances immediate needs with future considerations |
