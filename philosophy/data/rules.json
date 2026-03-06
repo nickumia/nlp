@@ -250,6 +250,7 @@
     "relationships": [
       {"target": "nietzsche", "type": "oppose"}
     ],
+    "lived": true,
     "notes": "Truth exists independently and can be discovered through reason."
   },
   {
@@ -267,6 +268,7 @@
     "relationships": [],
     "whenWorks": "When industry 'wisdom' says something is impossible or too expensive.",
     "whenFails": "When human relations, safety margins, or social consensus are the priority.",
+    "lived": true,
     "notes": "Break problems down to fundamental physical truths. Reject analogies ('we do it because it's always been done'). If the physics allow it, the only remaining barrier is the intensity of your will."
   },
   {
@@ -284,26 +286,59 @@
     "relationships": [],
     "whenWorks": "When industry 'wisdom' says something is impossible or too expensive.",
     "whenFails": "When human relations, safety margins, or social consensus are the priority.",
+    "lived": true,
     "notes": "Break problems down to fundamental physical truths. Reject analogies ('we do it because it's always been done'). If the physics allow it, the only remaining barrier is the intensity of your will."
   },
   {
-    "id": "buffett",
+    "id": "buffett1",
     "name": "Warren Buffett",
-    "rule": "Compound Patiently",
+    "rule": "Stay Within Your Circle of Competence",
     "axes": {
-      "conflict": -0.4,
-      "truth": 0.7,
-      "order": 0.8,
-      "will": 0.3,
-      "risk": -0.6,
-      "time": 1
+      "conflict": -0.8,
+      "truth": 1.0,
+      "order": -0.9,
+      "will": -0.9,
+      "risk": -1.0,
+      "time": 0.9
     },
-    "whenWorks": "When compounding advantages matter.",
-    "whenFails": "In rapidly changing environments.",
-    "relationships": [
-      {"target": "musk", "type": "oppose"}
-    ],
-    "notes": "Build advantage slowly through discipline and patience."
+    "whenWorks": "When you need to avoid catastrophic 'unforced errors' and play a game you are guaranteed to win.",
+    "whenFails": "When a field is undergoing a paradigm shift (like AI) that requires learning entirely new rules.",
+    "lived": true,
+    "notes": "The size of the circle doesn't matter; knowing the perimeter does. If you don't understand a business or a person deeply, do not engage. No matter how much others 'yell' at you to swing, you wait for your pitch."
+  },
+  {
+    "id": "buffett2",
+    "name": "Warren Buffett",
+    "rule": "Ruthlessly Eliminate the 'B-List'",
+    "axes": {
+      "conflict": 0.4,
+      "truth": 0.7,
+      "order": -1.0,
+      "will": 0.7,
+      "risk": -0.5,
+      "time": 0.6
+    },
+    "whenWorks": "When you are talented enough to do many things, but not focused enough to be the best at any.",
+    "whenFails": "When you are in an exploration phase of life and need to cast a wide net.",
+    "lived": true,
+    "notes": "Identify your top 5 goals. Everything else (6-25) becomes your 'Avoid-At-All-Cost' list. Do not touch them until the top 5 are done. Success is the result of saying 'no' to almost everything."
+  },
+  {
+    "id": "buffett3",
+    "name": "Warren Buffett",
+    "rule": "Maintain a Margin of Safety",
+    "axes": {
+      "conflict": -0.3,
+      "truth": 0.9,
+      "order": -0.8,
+      "will": -0.4,
+      "risk": -1.0,
+      "time": 1.0
+    },
+    "whenWorks": "In volatile environments where the 'unexpected' is guaranteed to happen eventually.",
+    "whenFails": "When 'Speed to Market' is the only thing that matters and caution equals death.",
+    "lived": true,
+    "notes": "Rule #1: Never lose money. Rule #2: Never forget Rule #1. You don't drive a 9,800lb truck over a bridge built for 10,000lbs. You find a bridge built for 30,000lbs."
   },
   {
     "id": "toretto",
