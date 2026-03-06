@@ -55,7 +55,8 @@ All axes use a **-1 to 1 scale** unless otherwise noted.
 | **-1.0** | Truth | Subjective | Truth determined by personal belief, intuition, or inner conviction |
 | **-0.5** | Truth | Relativistic | Multiple valid truths exist, truth depends on context or perspective |
 | **0.0** | Truth | Pragmatic | Truth serves practical outcomes and real-world effectiveness |
-| **0.5** | Truth | Objective | Single discoverable reality exists independently of observers |
+| **0.5** | Truth | Empirical | Truth based on observable evidence and data |
+| **1.0** | Truth | Objective | Truth exists independently of personal beliefs or perspectives |
 ||||
 | **-1.0** | Order | Structured | Follows established systems, hierarchies, and traditions |
 | **-0.5** | Order | Organized | Creates order through planning and coordination |
