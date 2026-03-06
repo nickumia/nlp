@@ -221,15 +221,16 @@
     "rule": "Be Like Water",
     "axes": {
       "conflict": 0,
-      "truth": 0.2,
-      "order": -0.4,
+      "truth": -0.3,
+      "order": 0.2,
       "will": 0,
-      "risk": 0.4,
-      "time": 0.3
+      "risk": 0,
+      "time": 0
     },
     "whenWorks": "When adaptability is required.",
     "whenFails": "When rigid structure is necessary.",
     "relationships": [],
+    "lived": true,
     "notes": "Adapt fluidly to circumstances instead of rigid doctrine."
   },
   {
