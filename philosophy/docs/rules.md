@@ -1,6 +1,6 @@
 # Rules & Axes
 
-This document explains how to add philosophical rules and score them on the conceptual axes.
+This document explains how to add philosophical rules and score them on the 6 conceptual axes.
 
 ## Rule Structure
 
@@ -33,89 +33,53 @@ Each philosophical rule follows this JSON structure:
 
 All axes use a **-1 to 1 scale** unless otherwise noted.
 
-### Conflict Orientation
-**How does the rule approach conflict and disagreement?**
+| Axis | Question | -1.0 (Min) | 1.0 (Max) |
+|-------|----------|------------|------------|
+| **Conflict** | How does the rule approach conflict and disagreement? | Collaborative | Dominant |
+| **Truth** | How does the rule treat truth and reality? | Subjective | Objective |
+| **Order** | How does the rule approach structure and systems? | Structured | Improvised |
+| **Will** | Where does the rule direct effort and energy? | Inward | Outward |
+| **Risk** | How does the rule handle uncertainty and risk? | Risk-Averse | Risk-Seeking |
+| **Time** | What time frame does the rule prioritize? | Short-Term | Long-Term |
 
-- **-1.0** = **Collaborative** - Seeks consensus, avoids confrontation
-- **-0.5** = **Diplomatic** - Prefers negotiation over direct conflict
-- **0.0** = **Strategic** - Treats conflict as a tool to be managed
-- **0.5** = **Competitive** - Engages in controlled conflict
-- **1.0** = **Dominant** - Uses force, intimidation, or overwhelming pressure
+## Detailed Scoring Guide
 
-**Examples:**
-- Gandhi's nonviolence = -1.0 (avoids conflict entirely)
-- Trump's negotiation = 1.0 (uses overwhelming pressure)
-- Sun Tzu's strategy = 0.0 (conflict as a calculated tool)
-
-### Truth Orientation
-**How does the rule treat truth and reality?**
-
-- **-1.0** = **Subjective** - Truth is determined by personal belief or perspective
-- **-0.5** = **Relativistic** - Multiple valid truths exist, context-dependent
-- **0.0** = **Pluralistic** - Multiple valid truths coexist
-- **0.5** = **Pragmatic** - Truth serves practical outcomes
-- **1.0** = **Objective** - Single discoverable reality exists independently
-
-**Examples:**
-- Nietzsche's will to power = -1.0 (creates own values/truth)
-- Einstein's science = 1.0 (objective reality exists)
-- Confucius's harmony = 0.0 (multiple truths for different contexts)
-
-### Order Orientation
-**How does the rule approach structure and systems?**
-
-- **-1.0** = **Structured** - Follows established systems, hierarchies, and traditions
-- **-0.5** = **Organized** - Creates order through planning and coordination
-- **0.0** = **Balanced** - Mixes structure and flexibility as needed
-- **0.5** = **Adaptive** - Adjusts structure based on circumstances
-- **1.0** = **Improvised** - Creates order spontaneously, rejects rigid structures
-
-**Examples:**
-- Confucius = -1.0 (strict hierarchical order)
-- Bruce Lee = 1.0 (fluid, improvised approach)
-- Marcus Aurelius = 0.0 (balanced inner/outer order)
-
-### Will Direction
-**Where does the rule direct effort and energy?**
-
-- **-1.0** = **Inward** - Focuses on self-discipline, internal change
-- **-0.5** = **Reflective** - Balances internal and external focus
-- **0.0** = **Integrated** - Coordinates internal and external efforts
-- **0.5** = **Expressive** - Projects will outward into the world
-- **1.0** = **Outward** - Seeks to change external conditions and others
-
-**Examples:**
-- Epictetus = -1.0 (master internal judgments)
-- Muhammad Ali = 1.0 (project confidence outward)
-- Buffett = 0.0 (balanced internal discipline with external action)
-
-### Risk Tolerance
-**How does the rule handle uncertainty and risk?**
-
-- **-1.0** = **Risk-Averse** - Minimizes exposure, seeks security
-- **-0.5** = **Cautious** - Prefers known paths, limits downside
-- **0.0** = **Calculated** - Takes risks when expected return justifies
-- **0.5** = **Opportunistic** - Seeks favorable risk/reward opportunities
-- **1.0** = **Risk-Seeking** - Embraces uncertainty, high-risk/high-reward approach
-
-**Examples:**
-- Buffett = -1.0 (minimizes risk through patience)
-- Musk = 1.0 (embraces extreme risks for breakthrough)
-- Marcus Aurelius = -0.5 (cautious about what can't be controlled)
-
-### Time Horizon
-**What time frame does the rule prioritize?**
-
-- **-1.0** = **Short-Term** - Focuses on immediate results and present moment
-- **-0.5** = **Reactive** - Responds to current conditions, limited future planning
-- **0.0** = **Present-Balanced** - Balances immediate needs with future considerations
-- **0.5** = **Strategic** - Plans for medium-term outcomes and positioning
-- **1.0** = **Long-Term** - Prioritizes future benefits, compounding effects, legacy
-
-**Examples:**
-- Trump = -1.0 (immediate wins, short-term focus)
-- Buffett = 1.0 (long-term compounding, patience)
-- Bruce Lee = 0.0 (present-focused adaptability)
+| Score | Axis | Approach | Description |
+|-------|------|----------|-----------|
+| **-1.0** | Conflict | Collaborative | Seeks consensus, avoids confrontation, prioritizes harmony |
+| **-0.5** | Conflict | Diplomatic | Prefers negotiation over direct conflict, uses strategic engagement |
+| **0.0** | Conflict | Strategic | Treats conflict as a tool to be managed, calculates costs/benefits |
+| **0.5** | Conflict | Competitive | Engages in controlled conflict, seeks advantage through competition |
+| **1.0** | Conflict | Dominant | Uses force, intimidation, or overwhelming pressure to achieve goals |
+|---|---|---|---|
+| **-1.0** | Truth | Subjective | Truth determined by personal belief, intuition, or inner conviction |
+| **-0.5** | Truth | Relativistic | Multiple valid truths exist, truth depends on context or perspective |
+| **0.0** | Truth | Pragmatic | Truth serves practical outcomes and real-world effectiveness |
+| **0.5** | Truth | Objective | Single discoverable reality exists independently of observers |
+|---|---|---|---|
+| **-1.0** | Order | Structured | Follows established systems, hierarchies, and traditions |
+| **-0.5** | Order | Organized | Creates order through planning and coordination |
+| **0.0** | Order | Balanced | Mixes structure and flexibility as needed |
+| **0.5** | Order | Adaptive | Adjusts structure based on circumstances |
+| **1.0** | Order | Improvised | Creates order spontaneously, rejects rigid structures |
+|---|---|---|---|
+| **-1.0** | Will | Inward | Focuses on self-discipline, internal change, and personal development |
+| **-0.5** | Will | Reflective | Balances internal and external focus, considers multiple perspectives |
+| **0.0** | Will | Integrated | Coordinates internal and external efforts, seeks harmony |
+| **0.5** | Will | Expressive | Projects will outward into the world, seeks to change others |
+| **1.0** | Will | Outward | Seeks to change external conditions and other people |
+|---|---|---|---|
+| **-1.0** | Risk | Risk-Averse | Minimizes exposure, seeks security, prefers known paths |
+| **-0.5** | Risk | Cautious | Prefers known approaches, limits downside, careful planning |
+| **0.0** | Risk | Calculated | Takes risks when expected return justifies |
+| **0.5** | Risk | Opportunistic | Seeks favorable risk/reward opportunities |
+| **1.0** | Risk | Risk-Seeking | Embraces uncertainty, high-risk/high-reward approach |
+|---|---|---|---|
+| **-1.0** | Time | Short-Term | Focuses on immediate results and present moment |
+| **-0.5** | Time | Reactive | Responds to current conditions, limited future planning |
+| **0.0** | Time | Present-Balanced | Balances immediate needs with future considerations |
+| **0.5** | Time | Strategic | Plans for medium-term outcomes and positioning |
+| **1.0** | Time | Long-Term | Prioritizes future benefits, compounding effects, legacy |
 
 ## Adding New Rules
 
@@ -126,10 +90,12 @@ All axes use a **-1 to 1 scale** unless otherwise noted.
 
 ## Relationship Types
 
-- **support** - One philosophy supports or reinforces another
-- **oppose** - Philosophies are fundamentally incompatible or in conflict
-- **similar** - Philosophies share core principles or approaches
-- **contextual** - Relationship depends on specific circumstances
+| Type | Description |
+|-------|-----------|
+| **support** | One philosophy supports or reinforces another |
+| **oppose** | Philosophies are fundamentally incompatible or in conflict |
+| **similar** | Philosophies share core principles or approaches |
+| **contextual** | Relationship depends on specific circumstances |
 
 ## Tips for Consistent Scoring
 
@@ -137,3 +103,14 @@ All axes use a **-1 to 1 scale** unless otherwise noted.
 - **Consider the extremes** - Use the full -1 to 1 scale meaningfully
 - **Think in spectra** - Each axis represents a spectrum, not just binary choices
 - **Test with visualization** - The graph will reveal if your scoring makes sense philosophically
+
+## Common Scoring Patterns
+
+| Pattern | Typical Scores | Examples |
+|---------|----------------|----------|
+| **Stoic** | conflict: -0.3, truth: 0.6, order: 0.8, will: 0, risk: -0.6, time: 0.5 | Marcus Aurelius, Epictetus |
+| **Pragmatic** | conflict: 0, truth: 0.5, order: 0.2, will: 0, risk: 0, time: 0 | Sun Tzu, Machiavelli |
+| **Collaborative** | conflict: -0.8, truth: 0.9, order: -0.3, will: 0.8, risk: 0.4, time: 0.7 | Gandhi, MLK |
+| **Dominant** | conflict: 0.8, truth: 0.3, order: 0.6, will: -1, risk: 0.8, time: -0.2 | Trump, Nietzsche |
+| **Balanced** | conflict: 0, truth: 0.5, order: 0, will: 0, risk: 0, time: 0 | Bruce Lee |
+| **Innovative** | conflict: 0.4, truth: 0.6, order: -0.2, will: -0.6, risk: 1, time: 0.9 | Musk, Einstein |
