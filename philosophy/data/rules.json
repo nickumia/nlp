@@ -341,21 +341,40 @@
     "notes": "Rule #1: Never lose money. Rule #2: Never forget Rule #1. You don't drive a 9,800lb truck over a bridge built for 10,000lbs. You find a bridge built for 30,000lbs."
   },
   {
-    "id": "toretto",
+    "id": "toretto1",
     "name": "Dominic Toretto",
     "rule": "Family Above Everything",
     "axes": {
-      "conflict": 0.3,
+      "conflict": 0.4,
       "truth": 0,
-      "order": -0.2,
-      "will": -0.3,
-      "risk": 0.7,
-      "time": 0.2
+      "order": -0.5,
+      "will": 0.6,
+      "risk": -0.7,
+      "time": 0
     },
     "whenWorks": "When loyalty bonds create strong teams.",
     "whenFails": "When broader cooperation is required.",
     "relationships": [],
+    "lived": true,
     "notes": "Loyalty to one's inner circle overrides all other considerations."
+  },
+  {
+    "id": "toretto2",
+    "name": "Dominic Toretto",
+    "rule": "I live my life a quarter mile at a time",
+    "axes": {
+      "conflict": 0,
+      "truth": 0,
+      "order": -0.6,
+      "will": 0.3,
+      "risk": -0.7,
+      "time": -0.9
+    },
+    "whenWorks": "Works when immediate focus and high-intensity action are needed",
+    "whenFails": "Fails when long-term planning, foresight, or cumulative strategy is required",
+    "relationships": [],
+    "lived": true,
+    "notes": ""
   },
   {
     "id": "ali",
@@ -367,7 +386,7 @@
       "order": -0.1,
       "will": -0.8,
       "risk": 0.7,
-      "time": 0.3
+      "time": 0.8
     },
     "whenWorks": "When confidence inspires followers.",
     "whenFails": "When humility and compromise are needed.",
