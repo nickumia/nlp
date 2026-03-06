@@ -171,10 +171,9 @@ def get_node_color(axes: dict) -> str:
 def main():
     project_root = Path(__file__).parent.parent
     rules_path = project_root / 'data' / 'rules.json'
-    relationships_path = project_root / 'data' / 'relationships.json'
     output_dir = project_root / 'output'
     
-    G = build_complete_graph(rules_path, relationships_path)
+    G = build_complete_graph(rules_path)
     
     png_path = output_dir / 'philosophy_map.png'
     render_static_graph(G, png_path)

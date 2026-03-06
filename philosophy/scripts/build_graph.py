@@ -72,14 +72,46 @@ def add_explicit_rule_relationships(G: nx.Graph, rules: List[Dict]) -> nx.Graph:
     return G
 
 
-def build_complete_graph(rules_path: str, relationships_path: str,
+def build_complete_graph(rules_path: str, relationships_path: str = None,
                         similarity_threshold: float = 1.0,
                         opposing_threshold: float = 2.0) -> nx.Graph:
     rules = load_rules(rules_path)
-    relationships = load_relationships(relationships_path)
     
-    G = build_graph(rules, relationships, similarity_threshold, opposing_threshold)
-    G = add_explicit_rule_relationships(G, rules)
+    G = nx.Graph()
+    
+    for rule in rules:
+        G.add_node(
+            rule['id'],
+            name=rule['name'],
+            rule=rule['rule'],
+            axes=rule['axes'],
+            whenWorks=rule.get('whenWorks', ''),
+            whenFails=rule.get('whenFails', ''),
+            influenceWeight=rule.get('influenceWeight', 0.5),
+            notes=rule.get('notes', '')
+        )
+    
+    # Add explicit relationships from rules.json
+    for rule in rules:
+        rule_id = rule['id']
+        for rel in rule.get('relationships', []):
+            target = rel['target']
+            rel_type = rel['type']
+            if G.has_node(target) and not G.has_edge(rule_id, target):
+                G.add_edge(rule_id, target, type=rel_type)
+    
+    # Add similarity-based relationships
+    similarity_matrix = compute_similarity_matrix(rules)
+    
+    similar_pairs = find_similar_rules(similarity_matrix, threshold=similarity_threshold)
+    for id1, id2, distance in similar_pairs:
+        if not G.has_edge(id1, id2):
+            G.add_edge(id1, id2, type='similarity', weight=1.0 / (distance + 0.1))
+    
+    opposing_pairs = find_opposing_rules(similarity_matrix, threshold=opposing_threshold)
+    for id1, id2, distance in opposing_pairs:
+        if not G.has_edge(id1, id2):
+            G.add_edge(id1, id2, type='opposing', weight=distance)
     
     return G
 
@@ -87,9 +119,8 @@ def build_complete_graph(rules_path: str, relationships_path: str,
 if __name__ == '__main__':
     project_root = Path(__file__).parent.parent
     rules_path = project_root / 'data' / 'rules.json'
-    relationships_path = project_root / 'data' / 'relationships.json'
     
-    G = build_complete_graph(rules_path, relationships_path)
+    G = build_complete_graph(rules_path, None)
     
     print(f"Graph Statistics:")
     print(f"  Nodes (philosophical rules): {G.number_of_nodes()}")

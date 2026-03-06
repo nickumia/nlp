@@ -13,36 +13,7 @@ The tool allows you to:
 4. Compute similarity relationships automatically
 5. Generate visual graph artifacts
 
-## Project Structure
-
-```
-philosophy/
-├── data/
-│   ├── rules.json              # Philosophical rules and axis scores
-│   └── relationships.json      # Explicit relationships between rules
-├── scripts/
-│   ├── compute_vectors.py      # Vector math and similarity calculations
-│   ├── build_graph.py          # Graph construction
-│   ├── render_graph.py         # Visualization generation
-│   └── analysis.py             # Network analysis and clustering
-├── output/
-│   ├── philosophy_map.png      # Static graph visualization
-│   ├── philosophy_map.svg      # Vector graph visualization
-│   ├── philosophy_map.html     # Interactive graph (optional)
-│   └── analysis_report.txt    # Network analysis report
-├── requirements.txt
-└── README.md
-```
-
 ## Installation
-
-### Local Installation
-
-1. Install Python dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 ### Docker
 
@@ -57,32 +28,6 @@ docker run -v $(pwd)/output:/app/output philosophy-map
 
 # Run analysis
 docker run -v $(pwd)/output:/app/output philosophy-map python scripts/analysis.py
-```
-
-For Windows PowerShell:
-
-```powershell
-# Build the image (preserves file ownership)
-docker build --build-arg USER_ID=$env:UID --build-arg GROUP_ID=$env:GID -t philosophy-map
-
-# Run the graph generation
-docker run -v "${PWD}/output:/app/output" philosophy-map
-
-# Run analysis
-docker run -v "${PWD}/output:/app/output" philosophy-map python scripts/analysis.py
-```
-
-For Windows CMD:
-
-```cmd
-# Build the image (preserves file ownership)
-docker build --build-arg USER_ID=1000 --build-arg GROUP_ID=1000 -t philosophy-map
-
-# Run the graph generation
-docker run -v "%cd%/output:/app/output" philosophy-map
-
-# Run analysis
-docker run -v "%cd%/output:/app/output" philosophy-map python scripts/analysis.py
 ```
 
 ## Usage
@@ -150,10 +95,9 @@ Each philosophical rule is defined with:
 
 ```json
 {
-  "id": "gandhi_nonviolence",
-  "name": "Nonviolent Resistance",
-  "source": "Mahatma Gandhi",
-  "description": "Resist oppression through nonviolent means.",
+  "id": "gandhi",
+  "name": "Mahatma Gandhi",
+  "rule": "Nonviolent Resistance",
   "axes": {
     "conflict": -1,
     "truth": 1,
@@ -164,26 +108,16 @@ Each philosophical rule is defined with:
   },
   "whenWorks": "When moral legitimacy matters.",
   "whenFails": "Against actors who ignore moral pressure.",
-  "similarTo": ["mlk_nonviolence"],
-  "opposes": ["trump_art_of_deal"],
+  "relationships": [
+    {"target": "mlk", "type": "support"},
+    {"target": "trump", "type": "oppose"}
+  ],
   "influenceWeight": 0.9,
-  "notes": "Requires patience and strategic non-cooperation."
+  "notes": "Resist oppression through nonviolent means."
 }
 ```
 
 **Axis values must be normalized between -1 and 1.**
-
-### relationships.json Schema
-
-Explicit relationships between rules:
-
-```json
-{
-  "source": "gandhi_nonviolence",
-  "target": "mlk_nonviolence",
-  "type": "support"
-}
-```
 
 **Valid relationship types:**
 - `support` - One philosophy supports another
@@ -208,6 +142,31 @@ These vectors are used to:
 **Interpretation:**
 - Small distance → similar philosophies
 - Large distance → opposing philosophies
+
+Core Axes (Quantified)
+
+Each rule must be scored on the following axes.
+
+All axes are semi-quantitative and manually tagged (initially).
+Scale: -1 to 1 (or 0 to 1 where noted).
+
+Conflict Orientation
+-1 = Collaboration
+0 = Neutral / Strategic
+1 = Dominance
+
+Truth Orientation
+-1 = Subjective (truth determined by self)
+0 = Plural (multiple valid truths)
+1 = Objective (single discoverable reality)
+
+Order Orientation
+-1 = Structured
+1 = Improvised
+
+Will Direction
+-1 = Outward (assert externally)
+0 = Inward (self-discipline)
 
 ## Graph Visualization
 
@@ -274,9 +233,8 @@ The analysis module computes:
 
 ## Workflow
 
-1. **Edit data files:**
-   - Modify `data/rules.json` to add/modify philosophical rules
-   - Modify `data/relationships.json` to add/modify relationships
+1. **Edit data file:**
+   - Modify `data/rules.json` to add/modify philosophical rules and relationships
 
 2. **Generate visualizations:**
    ```bash

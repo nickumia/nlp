@@ -2,7 +2,7 @@
   {
     "id": "gandhi",
     "name": "Mahatma Gandhi",
-    "rule": "Nonviolent Resistance",
+    "rule": "Ahimsa (Non-violence)",
     "axes": {
       "conflict": -1,
       "truth": 1,
@@ -13,8 +13,11 @@
     },
     "whenWorks": "When moral legitimacy and public visibility matter.",
     "whenFails": "Against actors who ignore moral pressure.",
-    "similarTo": ["mlk"],
-    "opposes": ["trump", "machiavelli"],
+    "relationships": [
+      {"target": "mlk", "type": "support"},
+      {"target": "trump", "type": "oppose"},
+      {"target": "machiavelli", "type": "oppose"}
+    ],
     "influenceWeight": 0.9,
     "notes": "Resist oppression through nonviolent means while maintaining moral legitimacy."
   },
@@ -32,8 +35,10 @@
     },
     "whenWorks": "When injustice must be exposed publicly.",
     "whenFails": "When opponents are indifferent to moral pressure.",
-    "similarTo": ["gandhi"],
-    "opposes": ["trump"],
+    "relationships": [
+      {"target": "gandhi", "type": "support"},
+      {"target": "trump", "type": "oppose"}
+    ],
     "influenceWeight": 0.85,
     "notes": "Create constructive nonviolent tension to force negotiation and change."
   },
@@ -51,8 +56,10 @@
     },
     "whenWorks": "When leverage and persistence can overwhelm opposition.",
     "whenFails": "When trust and cooperation are required.",
-    "similarTo": ["nietzsche", "machiavelli"],
-    "opposes": ["gandhi", "mlk"],
+    "relationships": [
+      {"target": "nietzsche", "type": "similar"},
+      {"target": "machiavelli", "type": "similar"}
+    ],
     "influenceWeight": 0.7,
     "notes": "Use pressure, dominance, and narrative control to win negotiations."
   },
@@ -70,8 +77,10 @@
     },
     "whenWorks": "When information asymmetry and planning matter.",
     "whenFails": "When trust is essential.",
-    "similarTo": ["machiavelli"],
-    "opposes": ["gandhi"],
+    "relationships": [
+      {"target": "machiavelli", "type": "similar"},
+      {"target": "gandhi", "type": "oppose"}
+    ],
     "influenceWeight": 0.8,
     "notes": "Win through superior positioning and information advantage."
   },
@@ -89,8 +98,10 @@
     },
     "whenWorks": "When events cannot be controlled.",
     "whenFails": "When decisive action is required.",
-    "similarTo": ["epictetus"],
-    "opposes": ["trump"],
+    "relationships": [
+      {"target": "epictetus", "type": "similar"},
+      {"target": "trump", "type": "oppose"}
+    ],
     "influenceWeight": 0.75,
     "notes": "Focus on what you control and accept the rest."
   },
@@ -108,8 +119,11 @@
     },
     "whenWorks": "When transformation requires breaking norms.",
     "whenFails": "When stability or cooperation are necessary.",
-    "similarTo": ["trump"],
-    "opposes": ["gandhi", "marcus_aurelius"],
+    "relationships": [
+      {"target": "trump", "type": "similar"},
+      {"target": "gandhi", "type": "oppose"},
+      {"target": "marcus_aurelius", "type": "oppose"}
+    ],
     "influenceWeight": 0.7,
     "notes": "Assert strength and create your own values."
   },
@@ -127,8 +141,10 @@
     },
     "whenWorks": "In stable societies built on relationships.",
     "whenFails": "During rapid innovation or upheaval.",
-    "similarTo": [],
-    "opposes": ["nietzsche", "trump"],
+    "relationships": [
+      {"target": "nietzsche", "type": "oppose"},
+      {"target": "trump", "type": "oppose"}
+    ],
     "influenceWeight": 0.8,
     "notes": "Maintain social harmony through duty and hierarchy."
   },
@@ -146,8 +162,11 @@
     },
     "whenWorks": "When survival in power politics is the priority.",
     "whenFails": "When legitimacy and trust matter.",
-    "similarTo": ["sun_tzu", "trump"],
-    "opposes": ["gandhi"],
+    "relationships": [
+      {"target": "sun_tzu", "type": "similar"},
+      {"target": "trump", "type": "similar"},
+      {"target": "gandhi", "type": "oppose"}
+    ],
     "influenceWeight": 0.75,
     "notes": "Use whatever means are necessary to maintain power."
   },
@@ -165,8 +184,9 @@
     },
     "whenWorks": "When internal discipline is required.",
     "whenFails": "When structural injustice requires action.",
-    "similarTo": ["marcus_aurelius"],
-    "opposes": [],
+    "relationships": [
+      {"target": "marcus_aurelius", "type": "similar"}
+    ],
     "influenceWeight": 0.7,
     "notes": "Suffering comes from judgments rather than events."
   },
@@ -184,8 +204,7 @@
     },
     "whenWorks": "When adaptability is required.",
     "whenFails": "When rigid structure is necessary.",
-    "similarTo": [],
-    "opposes": [],
+    "relationships": [],
     "influenceWeight": 0.65,
     "notes": "Adapt fluidly to circumstances instead of rigid doctrine."
   },
@@ -203,8 +222,9 @@
     },
     "whenWorks": "When seeking objective understanding.",
     "whenFails": "When human dynamics outweigh facts.",
-    "similarTo": [],
-    "opposes": ["nietzsche"],
+    "relationships": [
+      {"target": "nietzsche", "type": "oppose"}
+    ],
     "influenceWeight": 0.9,
     "notes": "Truth exists independently and can be discovered through reason."
   },
@@ -222,8 +242,7 @@
     },
     "whenWorks": "When breakthrough innovation is required.",
     "whenFails": "When stability and predictability matter.",
-    "similarTo": [],
-    "opposes": [],
+    "relationships": [],
     "influenceWeight": 0.75,
     "notes": "Pursue radical innovation despite high uncertainty."
   },
@@ -241,8 +260,9 @@
     },
     "whenWorks": "When compounding advantages matter.",
     "whenFails": "In rapidly changing environments.",
-    "similarTo": [],
-    "opposes": ["musk"],
+    "relationships": [
+      {"target": "musk", "type": "oppose"}
+    ],
     "influenceWeight": 0.85,
     "notes": "Build advantage slowly through discipline and patience."
   },
@@ -260,8 +280,7 @@
     },
     "whenWorks": "When loyalty bonds create strong teams.",
     "whenFails": "When broader cooperation is required.",
-    "similarTo": [],
-    "opposes": [],
+    "relationships": [],
     "influenceWeight": 0.6,
     "notes": "Loyalty to one's inner circle overrides all other considerations."
   },
@@ -279,8 +298,9 @@
     },
     "whenWorks": "When confidence inspires followers.",
     "whenFails": "When humility and compromise are needed.",
-    "similarTo": ["nietzsche"],
-    "opposes": [],
+    "relationships": [
+      {"target": "nietzsche", "type": "similar"}
+    ],
     "influenceWeight": 0.75,
     "notes": "Assert identity and conviction publicly and unapologetically."
   }

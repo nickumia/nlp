@@ -168,10 +168,9 @@ def generate_report(G: nx.Graph, output_path: Path):
 def main():
     project_root = Path(__file__).parent.parent
     rules_path = project_root / 'data' / 'rules.json'
-    relationships_path = project_root / 'data' / 'relationships.json'
     output_dir = project_root / 'output'
     
-    G = build_complete_graph(rules_path, relationships_path)
+    G = build_complete_graph(rules_path)
     
     report_path = output_dir / 'analysis_report.txt'
     generate_report(G, report_path)
